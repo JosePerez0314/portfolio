@@ -26,16 +26,16 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 font-sans transition-all duration-300 ${
+      className={`fixed top-0 w-full z-100 transition-all duration-300 font-sans ${
         scrolled
-          ? "bg-[#0b1221]/40 backdrop-blur-md border-b border-cyan-500/10 py-3"
-          : "bg-transparent "
+          ? "bg-slate-950/90 backdrop-blur-md border-b border-cyan-500/10 py-3"
+          : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
+      <div className="mt-2 mb-2 max-w-7xl mx-auto px-6 flex items-center justify-between">
+        {/* 1. Logo Section */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-gradient-to-br from-cyan-500 to-cyan-700 rounded-lg flex items-center justify-center text-slate-950 font-bold shadow-lg shadow-cyan-500/20">
+          <div className="w-9 h-9 bg-linear-to-br from-cyan-500 to-cyan-700 rounded-lg flex items-center justify-center text-slate-950 font-bold shadow-lg shadow-cyan-500/20">
             JP
           </div>
           <span className="text-slate-50 text-lg font-semibold tracking-tight">
@@ -43,7 +43,7 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* Desktop Nav */}
+        {/* 2. Desktop Navigation */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <a
@@ -56,10 +56,10 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Actions */}
+        {/* 3. Actions Section */}
         <div className="flex items-center gap-5">
-          {/* Language Toggle */}
-          <div className="flex items-center bg-[#0b1221]/60 backdrop-blur-md border border-cyan-500/20 rounded-full p-[3px] gap-1">
+          {/* THE PILL TOGGLE: Translated to clean Tailwind */}
+          <div className="flex items-center bg-slate-900/80 border border-cyan-500/20 rounded-full p-0.75 gap-1">
             {(["EN", "ES"] as const).map((l) => (
               <button
                 key={l}
@@ -75,7 +75,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Button */}
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-slate-400"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -85,29 +85,29 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* 4. Mobile Dropdown (Final Design Match) */}
-      {mobileOpen && (
-        <div className="md:hidden bg-nav-custom border-t border-cyan-500/10 p-6 flex flex-col shadow-2xl animate-in fade-in slide-in-from-top-5 duration-300">
-          {/* Adding margin-top to detach the list from the header/logo */}
-          <div className="mt-10 flex flex-col">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                /* 
-             'border-b' adds the line.
-             'last:border-none' ensures the bottom link doesn't have a stray line.
-             'py-5' increases the clickable area and spacing.
-          */
-                className="text-slate-400 text-lg font-medium py-5 border-b border-slate-800/60 last:border-none hover:text-cyan-400 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+      {/* 4. Mobile Dropdown (Simplified) */}
+      <div
+        className={`absolute top-full left-0 w-full md:hidden bg-slate-950 border-t border-slate-800 p-6 flex flex-col shadow-2xl
+  transform will-change-transform transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+  ${
+    mobileOpen
+      ? "opacity-100 translate-y-0 scale-100"
+      : "opacity-0 -translate-y-4 scale-95 pointer-events-none"
+  }`}
+      >
+        <div className="mt-1 flex flex-col">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-slate-400 text-lg font-medium py-5 border-b border-slate-800/60 last:border-none hover:text-cyan-400 transition-colors"
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 };
