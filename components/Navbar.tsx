@@ -15,6 +15,7 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { label: lang === "EN" ? "About Me" : "Acerca de mi", href: "#about-me" },
     {
       label: lang === "EN" ? "Experience" : "Experiencia",
       href: "#experience",

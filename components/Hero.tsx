@@ -73,9 +73,9 @@ const Hero = () => {
           <div className="absolute inset-0 bg-cyan-500/10 blur-3xl rounded-full" />
 
           {/* Image Container */}
-          <div className="relative w-64 h-64 md:w-90 md:h-90 flex items-center justify-center">
+          <div className="relative w-64 h-64 md:w-70 md:h-70 flex items-center justify-center">
             {/* Ring */}
-            <div className="absolute w-[140%] h-[110%] animate-spin-slow pointer-events-none">
+            <div className="absolute w-[170%] h-[110%] animate-spin-slow pointer-events-none">
               <div className="w-full h-full rounded-[50%] border-2 border-dashed border-cyan-500/30" />
             </div>
 
