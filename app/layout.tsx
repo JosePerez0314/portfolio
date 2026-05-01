@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
     >
       <body className="bg-[#10172A] text-slate-50 min-h-screen flex flex-col">
         <LanguageProvider>

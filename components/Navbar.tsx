@@ -3,25 +3,46 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { translations } from "@/data/translations"; // <-- Import the dictionary
+import { translations } from "@/data/translations";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(""); // 1. New State for Active Link
 
-  // <-- Get state and dictionary
   const { lang, setLang } = useLanguage();
   const t = translations[lang];
 
   useEffect(() => {
+    // Handle background blur on scroll
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // 2. Set up Intersection Observer for active states
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      // Trigger when the section crosses the vertical center of the screen
+      { rootMargin: "-50% 0px -50% 0px" },
+    );
+
+    // Observe all DOM elements that are sections and have an ID
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
-  // <-- Map the dictionary to your links
   const navLinks = [
-    { label: t.nav.about, href: "#about-me" },
+    { label: t.nav.about, href: "#about" }, // IMPORTANT: Ensure your section IDs match the hrefs exactly (e.g., id="about")
     { label: t.nav.experience, href: "#experience" },
     { label: t.nav.projects, href: "#projects" },
     { label: t.nav.skills, href: "#skills" },
@@ -49,18 +70,27 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-slate-400 hover:text-cyan-400 transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            // Check if this link is the currently active section
+            const isActive = activeSection === link.href.substring(1); // Removes the "#" from the href to match the ID
+
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-all duration-300 ${
+                  isActive
+                    ? "text-cyan-400 scale-105 drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]" // Active styling
+                    : "text-slate-400 hover:text-cyan-300"
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
 
-        {/* Actions Section & Language Toggle */}
+        {/* Actions Section & Language Toggle (Remains the same) */}
         <div className="flex items-center gap-5">
           <div className="flex items-center bg-slate-900/80 border border-cyan-500/20 rounded-full p-1 gap-1">
             {(["EN", "ES"] as const).map((l) => (
@@ -96,16 +126,24 @@ const Navbar = () => {
         }`}
       >
         <div className="mt-1 flex flex-col">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-slate-400 text-lg font-medium py-5 border-b border-slate-800/60 hover:text-cyan-400 transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-lg font-medium py-5 border-b border-slate-800/60 transition-colors ${
+                  isActive
+                    ? "text-cyan-400"
+                    : "text-slate-400 hover:text-cyan-300"
+                }`}
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
       </div>
     </nav>

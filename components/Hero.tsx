@@ -28,7 +28,7 @@ const Hero = () => {
             </span>
           </div>
 
-          <h1 className="font-extrabold text-[26px] sm:text-[32px] md:text-[42px] lg:text-[45px] text-slate-50 leading-[1.1] tracking-tight max-w-xl">
+          <h1 className="font-extrabold text-[26px] sm:text-[32px] md:text-[42px] lg:text-[40px] text-slate-50 leading-[1.1] tracking-tight max-w-xl">
             <span className="text-[#06B2D1]">{t.hero.role}</span> <br />
             {t.hero.title}
           </h1>
