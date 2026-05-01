@@ -42,6 +42,14 @@ export const translations = {
       ],
       signature: "José Pérez · Systems Engineer",
     },
+    sim: {
+      title: "Architecture Simulation",
+      subtitle: "Live preview of the TalentMatch AI parsing engine.",
+      endpoint: "/api/v1/match/analyze",
+      responseLabel: "AI Response",
+      sendBtn: "Send Request",
+      reset: "Reset",
+    },
   },
   ES: {
     nav: {
@@ -85,6 +93,14 @@ export const translations = {
         },
       ],
       signature: "José Pérez · Ingeniero de Sistemas",
+    },
+    sim: {
+      title: "Simulación de Arquitectura",
+      subtitle: "Vista previa en vivo del motor de análisis TalentMatch AI.",
+      endpoint: "/api/v1/match/analyze",
+      responseLabel: "Respuesta de IA",
+      sendBtn: "Enviar Petición",
+      reset: "Reiniciar",
     },
   },
 };

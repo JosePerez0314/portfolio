@@ -23,7 +23,7 @@ const Hero = () => {
           <div className="flex items-center gap-2 bg-[#0E283C] border border-[#0A738C] px-3 py-1.5 rounded-full">
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
 
-            <span className="text-[#0A738C] text-xs font-bold tracking-wide uppercase">
+            <span className="text-[#0A738C] text-xs font-bold tracking-wide">
               {t.hero.badge}
             </span>
           </div>
