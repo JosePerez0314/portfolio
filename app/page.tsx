@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import ApiSimulator from "@/components/ApiSimulator";
 import FeaturedProject from "@/components/FeaturedProject";
+import Experience from "@/components/Experience";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <About />
       <ApiSimulator />
       <FeaturedProject />
+      <Experience />
       {/* <About /> */}
     </main>
   );

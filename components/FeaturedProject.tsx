@@ -68,8 +68,8 @@ export default function FeaturedProject() {
         className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-12 items-start bg-slate-900/70 border border-cyan-500/15 rounded-3xl p-8 md:p-10 backdrop-blur-xl shadow-2xl mb-8"
       >
         {/* LEFT — Vertical Video Card */}
-        <div className="flex-shrink-0 mx-auto md:mx-0">
-          <div className="relative w-[220px] aspect-[9/16] rounded-[20px] overflow-hidden bg-slate-950 border border-cyan-500/20 shadow-[0_12px_48px_rgba(0,0,0,0.5)] group">
+        <div className="shrink-0 mx-auto md:mx-0">
+          <div className="relative w-55 aspect-9/16 rounded-[20px] overflow-hidden bg-slate-950 border border-cyan-500/20 shadow-[0_12px_48px_rgba(0,0,0,0.5)] group">
             <AnimatePresence mode="wait">
               {!isPlaying ? (
                 <motion.div
@@ -79,7 +79,7 @@ export default function FeaturedProject() {
                   exit={{ opacity: 0 }}
                   className="h-full w-full relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/90 to-transparent z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/90 to-transparent z-10 pointer-events-none" />
 
                   {/* UPDATE: Logo Image Implementation */}
                   <div className="relative w-full h-[65%] bg-slate-50 flex items-center justify-center p-6">
@@ -97,7 +97,7 @@ export default function FeaturedProject() {
                       whileHover={{ scale: 1.08 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setIsPlaying(true)}
-                      className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center shadow-[0_0_24px_rgba(6,182,212,0.4)] cursor-pointer border-none"
+                      className="w-14 h-14 rounded-full bg-linear-to-br from-cyan-500 to-cyan-600 flex items-center justify-center shadow-[0_0_24px_rgba(6,182,212,0.4)] cursor-pointer border-none"
                     >
                       <Play
                         size={20}

@@ -72,6 +72,45 @@ export const translations = {
         "A high-performance portfolio built with Next.js App Router and Tailwind CSS v4, featuring bilingual SEO optimization and an upcoming AI-powered chatbot integration to drive interactive recruiter engagement.",
       project2Stack: ["Next.js", "Tailwind v4", "Framer Motion", "TypeScript"],
     },
+    experience: {
+      sectionTitle: "Trajectory",
+      sectionSubtitle: "Experience & Education",
+      items: [
+        {
+          type: "current",
+          role: "Backend Architect & PM",
+          company: "TalentMatch AI",
+          year: "2026 - Present",
+          bullets: [
+            "Leading architecture design for a scalable, multi-tenant SaaS application.",
+            "Implementing high-performance REST APIs using Node.js, Express, and Prisma.",
+            "Managing sprint cycles and technical documentation for a 3-person engineering team.",
+          ],
+          tags: ["Node.js", "System Architecture", "Leadership"],
+        },
+        {
+          type: "current",
+          role: "IT Support & File Manager",
+          company: "M&C Inversiones",
+          year: "2024 - Present",
+          bullets: [
+            "Managed and digitized complex physical loan portfolios, ensuring data integrity, rapid retrieval, and secure distribution to authorized personnel.",
+            "Resolved hardware and software incidents, maintaining high system availability and providing tier-1 technical support under pressure.",
+            "Currently applying the TalentMatch AI recruitment engine within an operational environment to automate candidate parsing (in active development).",
+          ],
+          tags: ["Data Integrity", "IT Support", "AI Integration"],
+        },
+        {
+          type: "education",
+          role: "B.S. Systems Engineering",
+          company: "Universidad Tecnológica de Santiago",
+          year: "2021 - 2026",
+          description:
+            "Currently in my terminal year. Maintaining a 3.7 GPA (Honors trajectory). Coursework heavily focused on database design, software architecture, and systems optimization.",
+          tags: ["3.7 GPA", "Software Architecture", "Algorithms"],
+        },
+      ],
+    },
   },
   ES: {
     nav: {
@@ -137,7 +176,7 @@ export const translations = {
         "Backend escalable en Node.js y Express con Prisma ORM",
         "Puntuación de coincidencia en tiempo real con integración de GPT-4o-mini",
       ],
-      stack: ["Node.js", "Express", "MySQL", "Prisma", "JavaScript"],
+      stack: ["Node.js", "Express", "MySQL", "Prisma", "React", "TypeScript"],
       liveDemo: "Vista Previa",
       project2Name: "Portafolio 2.0",
       project2Tagline: "Marca Personal",
@@ -145,6 +184,45 @@ export const translations = {
       project2Description:
         "Un portafolio de alto rendimiento construido con Next.js App Router y Tailwind CSS v4, que cuenta con optimización SEO bilingüe y una próxima integración de un chatbot impulsado por IA para fomentar la interacción con reclutadores.",
       project2Stack: ["Next.js", "Tailwind v4", "Framer Motion", "TypeScript"],
+    },
+    experience: {
+      sectionTitle: "Trayectoria",
+      sectionSubtitle: "Experiencia y Educación",
+      items: [
+        {
+          type: "current",
+          role: "Arquitecto Backend y PM",
+          company: "TalentMatch AI",
+          year: "2026 - Presente",
+          bullets: [
+            "Liderando el diseño de arquitectura para una aplicación SaaS escalable y multi-tenant.",
+            "Implementando APIs REST de alto rendimiento usando Node.js, Express y Prisma.",
+            "Gestionando ciclos de sprint y documentación técnica para un equipo de 3 ingenieros.",
+          ],
+          tags: ["Node.js", "Arquitectura de Sistemas", "Liderazgo"],
+        },
+        {
+          type: "current",
+          role: "Soporte TI y Gestor de Archivos",
+          company: "M&C Inversiones",
+          year: "2024 - Presente",
+          bullets: [
+            "Gestioné y digitalicé portafolios complejos de préstamos físicos, asegurando la integridad de los datos, rápida recuperación y distribución segura.",
+            "Mantuve la alta disponibilidad de sistemas, resolviendo incidencias de hardware/software y proporcionando soporte técnico de nivel 1 bajo presión.",
+            "Aplicando el motor de automatización de reclutamiento TalentMatch AI en un entorno operativo real (en fase de desarrollo activo).",
+          ],
+          tags: ["Integridad de Datos", "Soporte TI", "Integración de IA"],
+        },
+        {
+          type: "education",
+          role: "Ingeniería en Sistemas",
+          company: "Universidad Tecnológica de Santiago",
+          year: "2021 - 2026",
+          description:
+            "Actualmente cursando mi último año. Manteniendo un GPA de 3.7 (Trayectoria de Honores). Plan de estudios enfocado en diseño de bases de datos, arquitectura de software y optimización.",
+          tags: ["GPA 3.7", "Arquitectura de Software", "Algoritmos"],
+        },
+      ],
     },
   },
 };
