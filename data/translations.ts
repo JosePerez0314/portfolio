@@ -50,6 +50,28 @@ export const translations = {
       sendBtn: "Send Request",
       reset: "Reset",
     },
+    project: {
+      sectionTitle: "Featured Project",
+      name: "TalentMatch AI",
+      tagline: "SaaS Platform",
+      badge: "In Development",
+      videoLabel: "Watch Demo",
+      description:
+        "An AI-driven recruitment engine designed to bridge the gap between technical talent and Canadian recruiters using advanced matching algorithms.",
+      archHighlights: [
+        "Multi-tenant architecture with isolated data layers",
+        "Scalable Node.js & Express backend using Prisma ORM",
+        "Real-time match scoring using GPT-4o-mini integration",
+      ],
+      stack: ["Node.js", "Express", "MySQL", "Prisma", "React", "TypeScript"],
+      liveDemo: "Live Preview",
+      project2Name: "Portfolio 2.0",
+      project2Tagline: "Self-Branding",
+      project2Badge: "Current",
+      project2Description:
+        "A high-performance portfolio built with Next.js App Router and Tailwind CSS v4, featuring bilingual SEO optimization and an upcoming AI-powered chatbot integration to drive interactive recruiter engagement.",
+      project2Stack: ["Next.js", "Tailwind v4", "Framer Motion", "TypeScript"],
+    },
   },
   ES: {
     nav: {
@@ -101,6 +123,28 @@ export const translations = {
       responseLabel: "Respuesta de IA",
       sendBtn: "Enviar Petición",
       reset: "Reiniciar",
+    },
+    project: {
+      sectionTitle: "Proyecto Destacado",
+      name: "TalentMatch AI",
+      tagline: "Plataforma SaaS",
+      badge: "En Desarrollo",
+      videoLabel: "Ver Demo",
+      description:
+        "Un motor de reclutamiento impulsado por IA diseñado para cerrar la brecha entre el talento técnico y los reclutadores utilizando algoritmos avanzados.",
+      archHighlights: [
+        "Arquitectura multi-tenant con capas de datos aisladas",
+        "Backend escalable en Node.js y Express con Prisma ORM",
+        "Puntuación de coincidencia en tiempo real con integración de GPT-4o-mini",
+      ],
+      stack: ["Node.js", "Express", "MySQL", "Prisma", "JavaScript"],
+      liveDemo: "Vista Previa",
+      project2Name: "Portafolio 2.0",
+      project2Tagline: "Marca Personal",
+      project2Badge: "Actual",
+      project2Description:
+        "Un portafolio de alto rendimiento construido con Next.js App Router y Tailwind CSS v4, que cuenta con optimización SEO bilingüe y una próxima integración de un chatbot impulsado por IA para fomentar la interacción con reclutadores.",
+      project2Stack: ["Next.js", "Tailwind v4", "Framer Motion", "TypeScript"],
     },
   },
 };

@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
-import About from "@/components/about";
-import ApiSimulator from "@/components/apiSimulator";
+import About from "@/components/About";
+import ApiSimulator from "@/components/ApiSimulator";
+import FeaturedProject from "@/components/FeaturedProject";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <About />
       <ApiSimulator />
+      <FeaturedProject />
       {/* <About /> */}
     </main>
   );
