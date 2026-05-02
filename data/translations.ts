@@ -55,7 +55,7 @@ export const translations = {
       name: "TalentMatch AI",
       tagline: "SaaS Platform",
       badge: "In Development",
-      videoLabel: "Watch Demo",
+      videoLabel: "Watch Figma Demo",
       description:
         "An AI-driven recruitment engine designed to bridge the gap between technical talent and Canadian recruiters using advanced matching algorithms.",
       archHighlights: [
@@ -157,6 +157,11 @@ export const translations = {
       tagline: "Backend Architect & Systems Engineer",
       rights: "© 2026 José Pérez. All rights reserved.",
     },
+    resume: {
+      buttonText: "Download Resume",
+      filePath: "/docs/Jose_Gabriel_Perez_Calcano_Resume_English.pdf",
+      fileName: "Jose_Perez_Backend_Architect_EN.pdf",
+    },
   },
   ES: {
     nav: {
@@ -214,7 +219,7 @@ export const translations = {
       name: "TalentMatch AI",
       tagline: "Plataforma SaaS",
       badge: "En Desarrollo",
-      videoLabel: "Ver Demo",
+      videoLabel: "Ver Demo Figma",
       description:
         "Un motor de reclutamiento impulsado por IA diseñado para cerrar la brecha entre el talento técnico y los reclutadores utilizando algoritmos avanzados.",
       archHighlights: [
@@ -315,6 +320,11 @@ export const translations = {
     footer: {
       tagline: "Arquitecto Backend e Ingeniero de Sistemas",
       rights: "© 2026 José Pérez. Todos los derechos reservados.",
+    },
+    resume: {
+      buttonText: "Descargar CV",
+      filePath: "/docs/Jose_Gabriel_Perez_Calcano_Resume_Spanish.pdf",
+      fileName: "Jose_Perez_Backend_Architect_ES.pdf",
     },
   },
 };

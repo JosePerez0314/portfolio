@@ -8,21 +8,19 @@ import { translations } from "@/data/translations";
 import me from "../public/img/yo.jpg"; // Adjust path if necessary
 
 const Hero = () => {
-  // <-- Get state and dictionary
-
   const { lang } = useLanguage();
-
   const t = translations[lang];
+
+  // We extract the resume object specifically for the download logic
+  const resume = translations[lang].resume;
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-12">
       <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
         {/* LEFT COLUMN */}
-
         <div className="flex flex-col items-start gap-6 md:gap-8">
           <div className="flex items-center gap-2 bg-[#0E283C] border border-[#0A738C] px-3 py-1.5 rounded-full">
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-
             <span className="text-[#0A738C] text-xs font-bold tracking-wide">
               {t.hero.badge}
             </span>
@@ -42,7 +40,6 @@ const Hero = () => {
               <span className="text-[#06b2d1] text-[20px] md:text-[25px] font-bold">
                 2026
               </span>
-
               <span className="text-slate-400 text-xs font-medium mt-1">
                 {t.hero.gradLabel}
               </span>
@@ -52,7 +49,6 @@ const Hero = () => {
               <span className="text-[#06b2d1] text-[20px] md:text-[25px] font-bold">
                 3.7
               </span>
-
               <span className="text-slate-400 text-xs font-medium mt-1">
                 {t.hero.gpaLabel}
               </span>
@@ -60,22 +56,26 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-4 mt-2">
+            {/* Primary CTA */}
             <button className="flex items-center gap-2 bg-[#06B2D1] hover:bg-cyan-400 text-slate-950 px-6 py-3 rounded-xl font-bold text-base transition-all shadow-lg shadow-cyan-500/20">
               {t.hero.btnPrimary}
-
               <ArrowRight size={18} />
             </button>
 
-            <button className="flex items-center gap-2 bg-transparent border border-slate-700 hover:border-[#06B2D1] hover:text-[#06B2D1] text-slate-300 px-6 py-3 rounded-xl font-medium text-base transition-all">
+            {/* DYNAMIC RESUME DOWNLOAD LINK */}
+            {/* Replaced the <button> with an <a> tag using the Context data */}
+            <a
+              href={resume.filePath}
+              download={resume.fileName}
+              className="flex items-center gap-2 bg-transparent border border-slate-700 hover:border-[#06B2D1] hover:text-[#06B2D1] text-slate-300 px-6 py-3 rounded-xl font-medium text-base transition-all cursor-pointer"
+            >
               <Download size={18} />
-
               {t.hero.btnSecondary}
-            </button>
+            </a>
           </div>
         </div>
 
         {/* RIGHT COLUMN (Image & Badges) */}
-
         <div className="relative flex justify-center md:justify-end mt-12 md:mt-0">
           <div className="absolute inset-0 bg-cyan-500/10 blur-3xl rounded-full" />
 
@@ -94,12 +94,10 @@ const Hero = () => {
               />
             </div>
 
-            {/* Badges remain hardcoded as they are tech names/stats */}
-
+            {/* Badges */}
             <div className="absolute top-[10%] -right-15 z-20">
               <div className="flex items-center gap-2 bg-slate-950/90 backdrop-blur-md border border-slate-700 px-3 py-1.5 rounded-lg shadow-xl">
                 <div className="w-2 h-2 rounded-full bg-[#68A063]" />
-
                 <span className="text-slate-200 text-xs font-bold">
                   Node.js
                 </span>
