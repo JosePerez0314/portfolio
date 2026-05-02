@@ -22,7 +22,7 @@ const RESPONSE_BODY = `{
   "message": "Match analysis complete",
   "data": {
     "candidate": "José Pérez",
-    "match_score": 0.97,
+    "match_score": 100,
     "skills_verified": [
       "Node.js",
       "Express.js",
@@ -212,7 +212,7 @@ export default function ApiSimulator() {
             {state === "idle" ? (
               <button
                 onClick={run}
-                className="inline-flex items-center gap-1.5 bg-gradient-to-br from-cyan-500 to-cyan-600 hover:scale-105 text-slate-950 px-4 py-1.5 rounded-lg text-[13px] font-bold transition-transform shadow-lg shadow-cyan-500/20"
+                className="inline-flex items-center gap-1.5 bg-linear-to-br from-cyan-500 to-cyan-600 hover:scale-105 text-slate-950 px-4 py-1.5 rounded-lg text-[13px] font-bold transition-transform shadow-lg shadow-cyan-500/20"
               >
                 <Play size={13} fill="currentColor" />
                 {t.sim.sendBtn}
@@ -230,7 +230,7 @@ export default function ApiSimulator() {
         </div>
 
         {/* Body — split panels */}
-        <div className="grid grid-cols-1 md:grid-cols-2 min-h-[380px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 min-h-95">
           {/* Request Panel */}
           <div className="p-6 border-b md:border-b-0 md:border-r border-white/5">
             <div className="mb-4">
@@ -239,7 +239,7 @@ export default function ApiSimulator() {
               </span>
             </div>
             <pre
-              className="m-0 font-mono text-[13px] leading-relaxed text-slate-300 whitespace-pre-wrap break-words"
+              className="m-0 font-mono text-[13px] leading-relaxed text-slate-300 whitespace-pre-wrap wrap-break-words"
               dangerouslySetInnerHTML={{
                 __html: syntaxHighlight(REQUEST_BODY),
               }}
@@ -255,7 +255,7 @@ export default function ApiSimulator() {
             </div>
 
             {state === "idle" && (
-              <div className="flex flex-col items-center justify-center h-[200px] text-slate-600 gap-3">
+              <div className="flex flex-col items-center justify-center h-50 text-slate-600 gap-3">
                 <div className="text-4xl opacity-50">⚡</div>
                 <span className="text-[13px] font-mono">
                   Awaiting request...
@@ -285,7 +285,7 @@ export default function ApiSimulator() {
               <motion.pre
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="m-0 font-mono text-[13px] leading-relaxed text-slate-300 whitespace-pre-wrap break-words"
+                className="m-0 font-mono text-[13px] leading-relaxed text-slate-300 whitespace-pre-wrap wrap-break-words"
               >
                 <TypedText text={RESPONSE_BODY} speed={12} />
               </motion.pre>
