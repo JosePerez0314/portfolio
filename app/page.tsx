@@ -3,6 +3,7 @@ import About from "@/components/About";
 import ApiSimulator from "@/components/ApiSimulator";
 import FeaturedProject from "@/components/FeaturedProject";
 import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <ApiSimulator />
       <FeaturedProject />
       <Experience />
+      <Skills />
       {/* <About /> */}
     </main>
   );
