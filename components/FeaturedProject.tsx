@@ -9,7 +9,7 @@ import Image from "next/image";
 import logo from "../public/img/Logo_TalentMatch_AI.png";
 
 // Your placeholder Shorts video ID
-const VIDEO_ID = "L00CcbqIv1M";
+const VIDEO_ID = "AkuiCN_Z1Jk";
 
 function GithubIcon({ size = 15 }: { size?: number }) {
   return (
