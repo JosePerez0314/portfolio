@@ -4,6 +4,7 @@ import ApiSimulator from "@/components/ApiSimulator";
 import FeaturedProject from "@/components/FeaturedProject";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
+import ContactFooter from "@/components/ContactFooter";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       <FeaturedProject />
       <Experience />
       <Skills />
-      {/* <About /> */}
+      <ContactFooter />
     </main>
   );
 }

@@ -199,7 +199,7 @@ export default function FeaturedProject() {
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              href="#"
+              href="#projects"
               className="inline-flex items-center gap-2 bg-linear-to-r from-cyan-500 to-cyan-600 text-slate-950 px-6 py-3 rounded-xl font-bold text-sm shadow-[0_4px_20px_rgba(6,182,212,0.25)] no-underline"
             >
               <ExternalLink size={15} />

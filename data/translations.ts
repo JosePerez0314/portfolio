@@ -63,7 +63,7 @@ export const translations = {
         "Scalable Node.js & Express backend using Prisma ORM",
         "Real-time match scoring using GPT-4o-mini integration",
       ],
-      stack: ["Node.js", "Express", "MySQL", "Prisma", "React", "TypeScript"],
+      stack: ["Node.js", "Express", "MySQL", "Prisma", "React", "JavaScript"],
       liveDemo: "Live Preview",
       project2Name: "Portfolio 2.0",
       project2Tagline: "Self-Branding",
@@ -146,6 +146,16 @@ export const translations = {
           items: ["OpenAI API", "Prompt Engineering"],
         },
       ],
+    },
+    contact: {
+      sectionTitle: "Ready to engineer the future?",
+      subtitle:
+        "Currently seeking opportunities in Canada or remote roles. Let's discuss architecture, systems, or your next big project.",
+      cta: "Send an Email",
+    },
+    footer: {
+      tagline: "Backend Architect & Systems Engineer",
+      rights: "© 2026 José Pérez. All rights reserved.",
     },
   },
   ES: {
@@ -295,6 +305,16 @@ export const translations = {
           items: ["OpenAI API", "Prompt Engineering"],
         },
       ],
+    },
+    contact: {
+      sectionTitle: "¿Listo para diseñar el futuro?",
+      subtitle:
+        "Actualmente buscando oportunidades en Canadá o roles remotos. Hablemos de arquitectura, sistemas o tu próximo gran proyecto.",
+      cta: "Enviar Correo",
+    },
+    footer: {
+      tagline: "Arquitecto Backend e Ingeniero de Sistemas",
+      rights: "© 2026 José Pérez. Todos los derechos reservados.",
     },
   },
 };
