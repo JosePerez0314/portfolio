@@ -111,6 +111,42 @@ export const translations = {
         },
       ],
     },
+    skills: {
+      sectionTitle: "Technical Arsenal",
+      sectionSubtitle: "Architecture & Stack",
+      categories: [
+        {
+          name: "Backend & Architecture",
+          label: "Core Stack",
+          items: [
+            "Node.js",
+            "Express.js",
+            "RESTful APIs",
+            "System Architecture",
+          ],
+        },
+        {
+          name: "Database & ORM",
+          label: "Data Layer",
+          items: ["MySQL", "Prisma ORM", "SQL Optimization"],
+        },
+        {
+          name: "Frontend & UI",
+          label: "Client Side",
+          items: ["React", "JavaScript (ES6+)", "Tailwind CSS", "HTML/CSS"],
+        },
+        {
+          name: "Infrastructure & Tools",
+          label: "DevOps",
+          items: ["Git", "GitHub", "Linux (Ubuntu)", "Postman"],
+        },
+        {
+          name: "AI & Integrations",
+          label: "Automation",
+          items: ["OpenAI API", "Prompt Engineering"],
+        },
+      ],
+    },
   },
   ES: {
     nav: {
@@ -221,6 +257,42 @@ export const translations = {
           description:
             "Actualmente cursando mi último año. Manteniendo un GPA de 3.7 (Trayectoria de Honores). Plan de estudios enfocado en diseño de bases de datos, arquitectura de software y optimización.",
           tags: ["GPA 3.7", "Arquitectura de Software", "Algoritmos"],
+        },
+      ],
+    },
+    skills: {
+      sectionTitle: "Arsenal Técnico",
+      sectionSubtitle: "Arquitectura y Stack",
+      categories: [
+        {
+          name: "Backend y Arquitectura",
+          label: "Stack Principal",
+          items: [
+            "Node.js",
+            "Express.js",
+            "APIs RESTful",
+            "Arquitectura de Sistemas",
+          ],
+        },
+        {
+          name: "Bases de Datos y ORM",
+          label: "Capa de Datos",
+          items: ["MySQL", "Prisma ORM", "Optimización SQL"],
+        },
+        {
+          name: "Frontend y UI",
+          label: "Lado del Cliente",
+          items: ["React", "JavaScript (ES6+)", "Tailwind CSS", "HTML/CSS"],
+        },
+        {
+          name: "Infraestructura y Herramientas",
+          label: "DevOps",
+          items: ["Git", "GitHub", "Linux (Ubuntu)", "Postman"],
+        },
+        {
+          name: "IA e Integraciones",
+          label: "Automatización",
+          items: ["OpenAI API", "Prompt Engineering"],
         },
       ],
     },
