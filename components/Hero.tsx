@@ -15,8 +15,8 @@ const Hero = () => {
   const resume = translations[lang].resume;
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-12">
-      <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
+    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10 w-full">
         {/* LEFT COLUMN */}
         <div className="flex flex-col items-start gap-6 md:gap-8">
           <div className="flex items-center gap-2 bg-[#0E283C] border border-[#0A738C] px-3 py-1.5 rounded-full">
