@@ -76,11 +76,12 @@ const Hero = () => {
         </div>
 
         {/* RIGHT COLUMN (Image & Badges) */}
-        <div className="relative flex justify-center md:justify-end mt-12 md:mt-0">
+        <div className="relative flex justify-center lg:justify-end mt-12 md:mt-0">
           <div className="absolute inset-0 bg-cyan-500/10 blur-3xl rounded-full" />
 
-          <div className="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center">
-            <div className="absolute w-[170%] h-[110%] animate-spin-slow pointer-events-none">
+          <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex items-center justify-center">
+            {/* Anillo decorativo: Ajustado para no desbordar */}
+            <div className="absolute w-[115%] h-[115%] md:w-[170%] md:h-[110%] animate-spin-slow pointer-events-none">
               <div className="w-full h-full rounded-[50%] border-2 border-dashed border-cyan-500/30" />
             </div>
 
@@ -94,27 +95,29 @@ const Hero = () => {
               />
             </div>
 
-            {/* Badges */}
-            <div className="absolute top-[10%] -right-15 z-20">
-              <div className="flex items-center gap-2 bg-slate-950/90 backdrop-blur-md border border-slate-700 px-3 py-1.5 rounded-lg shadow-xl">
-                <div className="w-2 h-2 rounded-full bg-[#68A063]" />
-                <span className="text-slate-200 text-xs font-bold">
+            {/* Badge: Node.js (Más pequeño en móvil, original en desktop) */}
+            <div className="absolute top-[5%] -right-2 md:top-[10%] md:-right-15 z-20">
+              <div className="flex items-center gap-1.5 bg-slate-950/90 backdrop-blur-md border border-slate-700 px-2 py-1 md:px-3 md:py-1.5 rounded-full shadow-xl">
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#68A063]" />
+                <span className="text-slate-200 text-[10px] md:text-xs font-bold">
                   Node.js
                 </span>
               </div>
             </div>
 
-            <div className="absolute bottom-[20%] -left-26 z-20">
-              <div className="flex items-center gap-2 bg-slate-950/90 backdrop-blur-md border border-cyan-500/30 px-3 py-1.5 rounded-lg shadow-xl">
-                <span className="text-cyan-400 text-xs font-bold">
+            {/* Badge: Prisma (Más pequeño en móvil, original en desktop) */}
+            <div className="absolute bottom-[15%] -left-6 md:bottom-[20%] md:-left-26 z-20">
+              <div className="flex items-center gap-1.5 bg-slate-950/90 backdrop-blur-md border border-cyan-500/30 px-2 py-1 md:px-3 md:py-1.5 rounded-full shadow-xl">
+                <span className="text-cyan-400 text-[10px] md:text-xs font-bold">
                   ⚡ Prisma ORM
                 </span>
               </div>
             </div>
 
-            <div className="absolute -bottom-9 right-12 z-20">
-              <div className="flex items-center gap-2 bg-cyan-500/10 backdrop-blur-md border border-cyan-500/40 px-3 py-1.5 rounded-lg shadow-xl">
-                <span className="text-cyan-400 text-xs font-bold tracking-wide">
+            {/* Badge: GPA (Más pequeño en móvil, original en desktop) */}
+            <div className="absolute -bottom-4 right-6 md:-bottom-9 md:right-12 z-20">
+              <div className="flex items-center gap-1.5 bg-cyan-500/10 backdrop-blur-md border border-cyan-500/40 px-2 py-1 md:px-3 md:py-1.5 rounded-full shadow-xl">
+                <span className="text-cyan-400 text-[10px] md:text-xs font-bold tracking-wide">
                   GPA 3.7 🎓
                 </span>
               </div>
