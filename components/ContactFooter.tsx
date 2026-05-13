@@ -69,7 +69,7 @@ export default function ContactFooter() {
                     label: "GitHub",
                   },
                   {
-                    href: "https://www.linkedin.com/in/jose-gabriel-perez-calca%C3%B1o-1a554b319",
+                    href: "https://www.linkedin.com/in/im-jose/",
                     icon: FaLinkedin,
                     label: "LinkedIn",
                   },
@@ -119,7 +119,7 @@ export default function ContactFooter() {
             {[
               { href: "https://github.com/JosePerez0314", icon: FaGithub },
               {
-                href: "https://www.linkedin.com/in/jose-gabriel-perez-calca%C3%B1o-1a554b319",
+                href: "https://www.linkedin.com/in/im-jose/",
                 icon: FaLinkedin,
               },
               { href: `mailto:${EMAIL}`, icon: Mail },
