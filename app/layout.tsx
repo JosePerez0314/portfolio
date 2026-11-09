@@ -80,8 +80,8 @@ export default function RootLayout({
       <body className="min-h-screen">
         <LanguageProvider>
           <Sidebar />
-          <div className="lg:pl-64">
-            <main className="mx-auto w-full max-w-3xl px-5 pb-20 pt-20 sm:px-8 lg:pt-12">
+          <div className="flex min-h-screen flex-col lg:pl-64">
+            <main className="mx-auto w-full max-w-3xl flex-1 px-5 pb-12 pt-20 sm:px-8 lg:pt-12">
               {children}
             </main>
             <Footer />
