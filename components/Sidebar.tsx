@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Mail, Menu, MessageSquare, X } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useLanguage } from "@/context/LanguageContext";
@@ -21,24 +21,40 @@ export default function Sidebar() {
   const { lang, setLang } = useLanguage();
   const t = translations[lang];
   const pathname = usePathname();
+  const reduce = useReducedMotion();
   const [open, setOpen] = useState(false);
 
-  const item = (active: boolean) =>
-    `flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors duration-150 ${
+  // Mobile drawer: lock page scroll and close on Escape while open.
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const item = (active: boolean, large: boolean) =>
+    `flex items-center gap-3 rounded-xl transition-colors duration-150 ${
+      large ? "px-4 py-3.5 text-base" : "rounded-lg px-3 py-2 text-sm"
+    } ${
       active
         ? "bg-surface-2 text-fg"
         : "text-muted hover:bg-surface hover:text-fg"
     }`;
 
-  const nav = (
+  const renderNav = (large: boolean) => (
     <nav aria-label="Primary" className="flex min-h-0 flex-col gap-5">
       <Link
         href="/"
         onClick={() => setOpen(false)}
         aria-current={pathname === "/" ? "page" : undefined}
-        className={`${item(pathname === "/")} font-medium`}
+        className={`${item(pathname === "/", large)} font-medium`}
       >
-        <Spark size={18} />
+        <Spark size={large ? 22 : 18} />
         {t.nav.home}
       </Link>
 
@@ -55,9 +71,9 @@ export default function Sidebar() {
               href={href}
               onClick={() => setOpen(false)}
               aria-current={active ? "page" : undefined}
-              className={item(active)}
+              className={item(active, large)}
             >
-              <MessageSquare size={14} className="shrink-0 opacity-60" />
+              <MessageSquare size={large ? 18 : 14} className="shrink-0 opacity-60" />
               <span className="truncate">{t[id].question}</span>
             </Link>
           );
@@ -86,16 +102,16 @@ export default function Sidebar() {
           </button>
         ))}
       </div>
-      <div className="flex items-center gap-4 px-1 text-muted">
-        <a href={LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="transition-colors hover:text-accent"><FaGithub size={18} /></a>
-        <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-accent"><FaLinkedin size={18} /></a>
-        <a href={`mailto:${EMAIL}`} aria-label="Email" className="transition-colors hover:text-accent"><Mail size={18} /></a>
+      <div className="flex items-center gap-5 px-1 text-muted">
+        <a href={LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="transition-colors hover:text-accent"><FaGithub size={20} /></a>
+        <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-accent"><FaLinkedin size={20} /></a>
+        <a href={`mailto:${EMAIL}`} aria-label="Email" className="transition-colors hover:text-accent"><Mail size={20} /></a>
       </div>
     </div>
   );
 
   const brand = (
-    <Link href="/" className="flex items-center gap-3">
+    <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-3">
       <Avatar size={36} />
       <span className="flex flex-col leading-tight">
         <span className="font-serif text-base font-medium text-fg">{t.meta.name}</span>
@@ -106,37 +122,62 @@ export default function Sidebar() {
 
   return (
     <>
+      {/* Desktop sidebar */}
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col justify-between border-r border-line bg-deep p-4 lg:flex">
         <div className="flex min-h-0 flex-col gap-6 overflow-y-auto">
           <div className="px-1 pt-1">{brand}</div>
-          {nav}
+          {renderNav(false)}
         </div>
         {footer}
       </aside>
 
-      <header className="fixed inset-x-0 top-0 z-40 flex h-14 items-center justify-between border-b border-line bg-deep/95 px-4 backdrop-blur lg:hidden">
-        {brand}
+      {/* Mobile top bar: menu icon on the left, like the Claude app */}
+      <header className="fixed inset-x-0 top-0 z-40 flex h-14 items-center gap-2 border-b border-line bg-deep/95 px-3 backdrop-blur lg:hidden">
         <button
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen(true)}
           aria-expanded={open}
+          aria-controls="mobile-menu"
           aria-label={t.nav.menu}
-          className="rounded-lg border border-line p-2 text-fg"
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-fg transition-colors duration-150 hover:bg-surface active:scale-[0.96]"
         >
-          {open ? <X size={18} /> : <Menu size={18} />}
+          <Menu size={22} />
         </button>
+        <div className="flex items-center gap-2">
+          <Spark size={22} />
+          <span className="font-serif text-lg font-medium text-fg">{t.meta.name}</span>
+        </div>
       </header>
 
+      {/* Mobile menu: slides in from the left and covers the whole screen */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-14 z-30 flex max-h-[calc(100dvh-3.5rem)] flex-col gap-5 overflow-y-auto border-b border-line bg-deep p-4 lg:hidden"
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label={t.nav.menu}
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={
+              reduce ? { duration: 0 } : { duration: 0.35, ease: [0.22, 1, 0.36, 1] }
+            }
+            className="fixed inset-0 z-50 flex flex-col bg-deep lg:hidden"
           >
-            {nav}
-            {footer}
+            <div className="flex h-14 shrink-0 items-center justify-between border-b border-line px-4">
+              {brand}
+              <button
+                onClick={() => setOpen(false)}
+                aria-label={t.nav.close}
+                className="flex h-10 w-10 items-center justify-center rounded-lg text-fg transition-colors duration-150 hover:bg-surface active:scale-[0.96]"
+              >
+                <X size={22} />
+              </button>
+            </div>
+            <div className="min-h-0 flex-1 overflow-y-auto px-4 py-6">
+              {renderNav(true)}
+            </div>
+            <div className="shrink-0 border-t border-line p-4 pb-6">{footer}</div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     siteName: "José Gabriel Pérez Portfolio",
     images: [
       {
-        url: "/img/me.jpeg",
-        width: 952,
-        height: 1265,
+        url: "/img/og.png",
+        width: 1200,
+        height: 630,
         alt: "José Gabriel Pérez - Backend Developer Portfolio",
       },
     ],
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "José Gabriel Pérez | Backend Developer",
     description: "Backend developer: REST APIs and scalable systems.",
-    images: ["/img/me.jpeg"],
+    images: ["/img/og.png"],
   },
   robots: {
     index: true,

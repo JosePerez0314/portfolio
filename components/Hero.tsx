@@ -81,9 +81,9 @@ export default function Hero() {
     "rounded-full border border-line bg-surface-2 px-5 py-2.5 text-sm text-muted transition-colors duration-150 hover:border-accent/50 hover:text-fg";
 
   return (
-    <section className="flex flex-col justify-center gap-14 pb-10 pt-6 lg:min-h-[calc(100dvh-11rem)] lg:pt-10">
-      <div className="grid w-full items-center gap-12 md:grid-cols-[1fr_240px] md:gap-16">
-        <div className="flex flex-col items-start gap-8 md:gap-10">
+    <section className="flex flex-col justify-center gap-10 pb-10 md:gap-14 pt-6 lg:min-h-[calc(100dvh-11rem)] lg:pt-10">
+      <div className="grid w-full items-center gap-8 md:grid-cols-[1fr_240px] md:gap-16">
+        <div className="flex flex-col items-start gap-6 md:gap-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
             <span className="h-2 w-2 rounded-full bg-accent [animation:status-pulse_2.4s_ease-in-out_infinite]" />
             {t.hero.status}
@@ -101,7 +101,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="order-first ml-auto w-36 sm:w-44 md:order-last md:ml-0 md:w-full">
+        <div className="order-first mx-auto w-44 sm:w-48 md:order-last md:mx-0 md:w-full">
           <div className="relative aspect-square overflow-hidden rounded-full border-2 border-line bg-surface shadow-[0_0_0_6px_var(--color-deep)]">
             <Image
               src={me}

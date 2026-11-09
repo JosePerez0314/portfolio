@@ -29,7 +29,7 @@ Multi-page bilingual (EN/ES) portfolio for a backend developer, deployed at http
 - **i18n is hand-rolled**: `context/LanguageContext.tsx` holds `lang` (`"EN" | "ES"`, default `"EN"`, not persisted). All copy lives in `data/translations.ts`; `ES` is typed as `Dictionary` (= `typeof EN`), so both trees must keep the same shape or `tsc` fails. Components do `translations[lang]`. `SECTION_IDS` (in that file) defines the pages and their order (`hrefFor(id)` = `/id`) and feeds the sidebar and the "Next" links, so adding a page means: id in `SECTION_IDS`, a `nav` label and a `<id>.question` in both languages, a component using `Turn`, and `app/<id>/page.tsx` (also add it to `app/sitemap.ts`).
 - Colors are Tailwind tokens (`bg-bg`, `bg-surface`, `border-line`, `text-muted`, `text-accent`...) defined in `@theme inline` in `app/globals.css` (Tailwind v4, no `tailwind.config`). Do not hardcode hex values in components.
 - `Reveal.tsx` is the shared entrance-reveal wrapper (reduced-motion aware). `Hero` types its headline.
-- Profile photo: `public/img/me.jpeg` (also used for OG/Twitter images in `app/layout.tsx`). Resume PDFs are referenced from `translations[lang].resume` and live in `public/docs/`.
+- Profile photo: `public/img/me.jpeg` (site photo; the OG/Twitter share image is the pre-rendered `public/img/og.png`, 1200×630, referenced in `app/layout.tsx` — regenerate it if the photo or title changes). Resume PDFs are referenced from `translations[lang].resume` and live in `public/docs/`.
 - SEO: static `metadata` in `app/layout.tsx`, plus `app/sitemap.ts`, `app/robots.ts`, `app/icon.tsx`.
 
 ## Workflow
