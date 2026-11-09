@@ -82,26 +82,32 @@ export default function Sidebar() {
     </nav>
   );
 
+  const langSwitch = (compact: boolean) => (
+    <div
+      role="group"
+      aria-label={t.nav.language}
+      className={`grid grid-cols-2 rounded-lg border border-line bg-surface p-0.5 text-xs ${
+        compact ? "w-[4.5rem]" : ""
+      }`}
+    >
+      {(["EN", "ES"] as const).map((l) => (
+        <button
+          key={l}
+          onClick={() => setLang(l)}
+          aria-pressed={lang === l}
+          className={`rounded-md font-medium transition-colors duration-150 ${
+            compact ? "py-1" : "py-1.5"
+          } ${lang === l ? "bg-surface-2 text-fg" : "text-muted hover:text-fg"}`}
+        >
+          {l}
+        </button>
+      ))}
+    </div>
+  );
+
   const footer = (
     <div className="flex flex-col gap-4">
-      <div
-        role="group"
-        aria-label={t.nav.language}
-        className="grid grid-cols-2 rounded-lg border border-line bg-surface p-0.5 text-xs"
-      >
-        {(["EN", "ES"] as const).map((l) => (
-          <button
-            key={l}
-            onClick={() => setLang(l)}
-            aria-pressed={lang === l}
-            className={`rounded-md py-1.5 font-medium transition-colors duration-150 ${
-              lang === l ? "bg-surface-2 text-fg" : "text-muted hover:text-fg"
-            }`}
-          >
-            {l}
-          </button>
-        ))}
-      </div>
+      {langSwitch(false)}
       <div className="flex items-center gap-5 px-1 text-muted">
         <a href={LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="transition-colors hover:text-accent"><FaGithub size={20} /></a>
         <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-accent"><FaLinkedin size={20} /></a>
@@ -146,6 +152,7 @@ export default function Sidebar() {
           <Spark size={22} />
           <span className="font-serif text-lg font-medium text-fg">{t.meta.name}</span>
         </div>
+        <div className="ml-auto pr-1">{langSwitch(true)}</div>
       </header>
 
       {/* Mobile menu: slides in from the left and covers the whole screen */}
