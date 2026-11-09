@@ -1,330 +1,524 @@
-export const translations = {
-  EN: {
-    nav: {
-      about: "About Me",
-      experience: "Experience",
-      projects: "Projects",
-      skills: "Skills",
+const EN = {
+  meta: { name: "José Pérez", role: "Backend Developer" },
+  nav: {
+    home: "Home",
+    about: "About",
+    projects: "Projects",
+    experience: "Experience",
+    skills: "Stack",
+    education: "Education",
+    contact: "Contact",
+    menu: "Menu",
+    recents: "Conversations",
+    next: "Next",
+    language: "Language",
+  },
+  hero: {
+    status: "Open to backend roles",
+    greeting: "Hi, I'm José.",
+    roles: ["Backend Developer", "Systems Engineer"],
+    title: "I build APIs, and I explain them so anyone can understand.",
+    desc: "Backend developer working with Node.js, TypeScript and MySQL. I design REST APIs, multi-tenant data models and AI-powered integrations.",
+    composerPlaceholder: "Ask about my work…",
+    chips: {
+      projects: "See projects",
+      cv: "Download CV",
       contact: "Contact",
     },
-    hero: {
-      badge: "Available",
-      role: "Systems Engineer",
-      title: "& Backend Architect.",
-      desc: "Engineering scalable backends. Expected 2026 graduate with a 3.7 GPA.",
-      gradLabel: "Expected Grad.",
-      gpaLabel: "GPA (Honours)",
-      btnPrimary: "View My Architecture",
-      btnSecondary: "Download CV",
-    },
-    about: {
-      overline: "About Me",
-      heading: "About Me",
-      badge: "Status: Hardcore Mode",
-      paragraphs: [
-        {
-          text: "I am a Systems Engineering student operating with absolute focus. Transitioning from IT Support to Backend Architecture, my core objective is engineering scalable, multi-tenant platforms using Node.js, Express, and Prisma.",
-          highlights: [
-            "Systems Engineering",
-            "Backend Architecture",
-            "scalable, multi-tenant platforms",
-            "Node.js, Express, and Prisma",
-          ],
-        },
-        {
-          text: "Beyond writing optimized backend logic, my greatest strength is architectural communication—translating complex technical pipelines into clear, actionable data for stakeholders. I approach software engineering with the same relentless discipline I apply to heavy strength training and mastering the drums: strict form, heavy repetitions, and constant iteration.",
-          highlights: ["architectural communication", "software engineering"],
-        },
-        {
-          text: "I am currently building the foundation to bring my architectural skills to the Canadian tech ecosystem.",
-          highlights: ["Canadian tech ecosystem"],
-        },
-      ],
-      signature: "José Pérez · Systems Engineer",
-    },
-    sim: {
-      title: "Architecture Simulation",
-      subtitle: "Live preview of the TalentMatch AI parsing engine.",
-      endpoint: "/api/v1/match/analyze",
-      responseLabel: "AI Response",
-      sendBtn: "Send Request",
-      reset: "Reset",
-    },
-    project: {
-      sectionTitle: "Featured Project",
-      name: "TalentMatch AI",
-      tagline: "SaaS Platform",
-      badge: "In Development",
-      videoLabel: "Watch Figma Demo",
-      description:
-        "An AI-driven recruitment engine designed to bridge the gap between technical talent and Canadian recruiters using advanced matching algorithms.",
-      archHighlights: [
-        "Multi-tenant architecture with isolated data layers",
-        "Scalable Node.js & Express backend using Prisma ORM",
-        "Real-time match scoring using GPT-4o-mini integration",
-      ],
-      stack: ["Node.js", "Express", "MySQL", "Prisma", "React", "JavaScript"],
-      liveDemo: "Live Preview",
-      project2Name: "Portfolio 2.0",
-      project2Tagline: "Self-Branding",
-      project2Badge: "Current",
-      project2Description:
-        "A high-performance portfolio built with Next.js App Router and Tailwind CSS v4, featuring bilingual SEO optimization and an upcoming AI-powered chatbot integration to drive interactive recruiter engagement.",
-      project2Stack: ["Next.js", "Tailwind v4", "Framer Motion", "TypeScript"],
-    },
-    experience: {
-      sectionTitle: "Trajectory",
-      sectionSubtitle: "Experience & Education",
-      items: [
-        {
-          type: "current",
-          role: "Backend Architect & PM",
-          company: "TalentMatch AI",
-          year: "2026 - Present",
-          bullets: [
-            "Leading architecture design for a scalable, multi-tenant SaaS application.",
-            "Implementing high-performance REST APIs using Node.js, Express, and Prisma.",
-            "Managing sprint cycles and technical documentation for a 3-person engineering team.",
-          ],
-          tags: ["Node.js", "System Architecture", "Leadership"],
-        },
-        {
-          type: "current",
-          role: "IT Support & File Manager",
-          company: "M&C Inversiones",
-          year: "2024 - Present",
-          bullets: [
-            "Managed and digitized complex physical loan portfolios, ensuring data integrity, rapid retrieval, and secure distribution to authorized personnel.",
-            "Resolved hardware and software incidents, maintaining high system availability and providing tier-1 technical support under pressure.",
-            "Currently applying the TalentMatch AI recruitment engine within an operational environment to automate candidate parsing (in active development).",
-          ],
-          tags: ["Data Integrity", "IT Support", "AI Integration"],
-        },
-        {
-          type: "education",
-          role: "B.S. Systems Engineering",
-          company: "Universidad Tecnológica de Santiago",
-          year: "2021 - 2026",
-          description:
-            "Currently in my terminal year. Maintaining a 3.7 GPA (Honors trajectory). Coursework heavily focused on database design, software architecture, and systems optimization.",
-          tags: ["3.7 GPA", "Software Architecture", "Algorithms"],
-        },
-      ],
-    },
-    skills: {
-      sectionTitle: "Technical Arsenal",
-      sectionSubtitle: "Architecture & Stack",
-      categories: [
-        {
-          name: "Backend & Architecture",
-          label: "Core Stack",
-          items: [
-            "Node.js",
-            "Express.js",
-            "RESTful APIs",
-            "System Architecture",
-          ],
-        },
-        {
-          name: "Database & ORM",
-          label: "Data Layer",
-          items: ["MySQL", "Prisma ORM", "SQL Optimization"],
-        },
-        {
-          name: "Frontend & UI",
-          label: "Client Side",
-          items: ["React", "JavaScript (ES6+)", "Tailwind CSS", "HTML/CSS"],
-        },
-        {
-          name: "Infrastructure & Tools",
-          label: "DevOps",
-          items: ["Git", "GitHub", "Linux (Ubuntu)", "Postman"],
-        },
-        {
-          name: "AI & Integrations",
-          label: "Automation",
-          items: ["OpenAI API", "Prompt Engineering"],
-        },
-      ],
-    },
-    contact: {
-      sectionTitle: "Ready to engineer the future?",
-      subtitle:
-        "Currently seeking opportunities in Canada or remote roles. Let's discuss architecture, systems, or your next big project.",
-      cta: "Send an Email",
-    },
-    footer: {
-      tagline: "Backend Architect & Systems Engineer",
-      rights: "© 2026 José Pérez. All rights reserved.",
-    },
-    resume: {
-      buttonText: "Download Resume",
-      filePath: "/docs/Jose_Gabriel_Perez_Calcano_Resume_English.pdf",
-      fileName: "Jose_Perez_Backend_Architect_EN.pdf",
+  },
+  about: {
+    question: "Who is José?",
+    paragraphs: [
+      "I'm a Systems Engineer and backend developer focused on APIs, data modeling and system design. I work mostly with Node.js, Express, Prisma and MySQL.",
+      "I lead the backend of TalentMatch AI, a multi-tenant SaaS for recruitment: I design the architecture, build the REST API and keep the technical documentation and sprints moving for a small team.",
+      "I care about clear contracts, predictable data and being able to explain how a system works to people who don't read code.",
+    ],
+    facts: [
+      { label: "Focus", value: "REST APIs · Multi-tenant SaaS" },
+      { label: "Core stack", value: "Node.js · TypeScript · Prisma · MySQL" },
+      { label: "Availability", value: "Available for remote work" },
+      { label: "Base", value: "Dominican Republic" },
+    ],
+  },
+  projects: {
+    question: "What has he built?",
+    items: [
+      {
+        name: "TalentMatch AI",
+        kind: "B2B HR SaaS · Backend · Tech Lead",
+        status: "MVP deployed",
+        problem:
+          "Recruiters lose hours parsing and comparing candidates by hand. TalentMatch AI scores candidates against a role automatically.",
+        points: [
+          "Built the SaaS's complete backend: RESTful API architecture, MySQL database design with Prisma and OpenAI API integration for semantic analysis of profiles.",
+          "Implemented the scoring engine that ranks candidates by fit with each vacancy, automating the initial screening step of hiring.",
+          "Led the dev team as Tech Lead: code reviews, bug resolution and frontend coordination. MVP deployed and demoed to 5 initial users.",
+        ],
+        stack: ["Node.js", "Express", "Prisma", "MySQL", "OpenAI API", "React"],
+        code: "https://github.com/JosePerez0314/talentmatch-backend",
+        codeLabel: "Backend repo",
+        videoLabel: "Watch demo",
+        closeLabel: "Close",
+        liveUrl: "",
+        liveLabel: "",
+        privateLabel: "",
+      },
+      {
+        name: "Video Editor — Shorts",
+        kind: "AI agents · Freelance",
+        status: "Public repo",
+        problem:
+          "A production system that turns a topic into a ready-to-publish vertical short (1080×1920): idea → script → scenes → render → review → social calendar. A team of 6 Claude Code agents, guided by 33 skill manuals, does the work and the creator only approves at checkpoints.",
+        points: [
+          "Designed a workflow of 6 AI agents with defined contracts (strategy, script, editing, quality control and social media) and 33 skills, with human supervision on every creative decision. Implemented with Claude Code.",
+          "Extended an open source editor built on Remotion: scenes, subtitles and sound effects are synchronized to the voice transcription (Whisper).",
+          "Automated quality control with 30 measured checks (format, volume, loop, safe zones) and token cost tracked per task. 4 videos delivered, 2 published on social media.",
+        ],
+        stack: ["Claude Code", "Remotion", "React", "TypeScript", "Node.js", "Python", "FFmpeg", "Whisper"],
+        code: "https://github.com/JosePerez0314/video-editor",
+        codeLabel: "Repository",
+        videoLabel: "",
+        closeLabel: "Close",
+        liveUrl: "",
+        liveLabel: "",
+        privateLabel: "",
+      },
+      {
+        name: "OMEX Solution",
+        kind: "Freelance · Full stack + SEO",
+        status: "Live",
+        problem:
+          "Business website for a Dominican company that supplies offices with materials and facility services (A/C maintenance, pest control, commercial cleaning). Built as a freelance project.",
+        points: [
+          "Designed and built the site from scratch for a Dominican B2B supplier of office supplies and maintenance: live in production, with technical SEO and responsive design.",
+          "Managed the project independently: scope, quote, development, deployment and delivery.",
+          "Built with Next.js, React and Tailwind CSS, deployed on Vercel, with direct contact via call, email and WhatsApp.",
+        ],
+        stack: ["Next.js", "React", "Tailwind CSS", "SEO", "Vercel"],
+        code: "",
+        codeLabel: "",
+        videoLabel: "",
+        closeLabel: "Close",
+        liveUrl: "https://omexsolution.com",
+        liveLabel: "Visit site",
+        privateLabel: "Private repository (client work)",
+      },
+      {
+        name: "Portfolio",
+        kind: "Next.js · This site",
+        status: "Live",
+        problem:
+          "A bilingual, SEO-ready portfolio built with the Next.js App Router and Tailwind CSS v4, designed around a Claude-style interface.",
+        points: [
+          "Bilingual content from a single typed dictionary.",
+          "Reduced-motion aware animations with Framer Motion.",
+        ],
+        stack: ["Next.js", "TypeScript", "Tailwind v4", "Framer Motion"],
+        code: "https://github.com/JosePerez0314/portfolio",
+        codeLabel: "Source",
+        videoLabel: "",
+        closeLabel: "Close",
+        liveUrl: "",
+        liveLabel: "",
+        privateLabel: "",
+      },
+    ],
+    fullstack: {
+      title: "Also full stack and SEO",
+      text: "If it's useful for your team: besides backend, I also build full stack products (React, Next.js) and handle technical SEO — metadata, performance and search visibility — as in OMEX Solution.",
+      cta: "Let's talk",
     },
   },
-  ES: {
-    nav: {
-      about: "Sobre Mí",
-      experience: "Experiencia",
-      projects: "Proyectos",
-      skills: "Habilidades",
+  experience: {
+    question: "Where has he worked?",
+    items: [
+      {
+        role: "IT Specialist & Web Developer",
+        company: "BCBLPRO (Pluton Legal)",
+        place: "Santo Domingo, DR · Until the company ceased operations",
+        period: "Jul 2026 – Oct 2026 (3 months)",
+        bullets: [
+          "Designed, built and deployed the company landing page (plutonlegal.com) from scratch with Next.js, Tailwind CSS and Vercel, mobile-first, with a lead-capture form.",
+          "Provided technical support and independently administered the IT environment (25+ users): Microsoft Entra ID / M365, devices joined to Entra ID, least-privilege accounts and shared mailboxes per department.",
+          "Carried out the technical survey of the network and the data center plan (switches, firewall, UPS, VLAN, IP video surveillance with 20 cameras) and audited an external provider's telephony/CRM system, identifying unrecognized accounts and visibility inconsistencies.",
+        ],
+      },
+      {
+        role: "Technical Support",
+        company: "M&C Inversiones",
+        place: "Santo Domingo, DR",
+        period: "Jan 2025 – Jul 2026 (1 year 6 months)",
+        bullets: [
+          "Provided technical assistance to 10+ users, resolving incidents in systems, equipment and technology platforms quickly and efficiently.",
+          "Helped modernize and configure corporate printers, cutting recurring incidents by more than 80% and improving operational continuity in the administrative area.",
+        ],
+      },
+    ],
+  },
+  skills: {
+    question: "What does he work with?",
+    groups: [
+      {
+        name: "Backend",
+        items: [
+          { name: "Node.js", icon: "node" },
+          { name: "Express", icon: "express" },
+          { name: "TypeScript", icon: "ts" },
+          { name: "JavaScript", icon: "js" },
+          { name: "RESTful APIs", icon: "rest" },
+        ],
+      },
+      {
+        name: "Data",
+        items: [
+          { name: "MySQL", icon: "mysql" },
+          { name: "Prisma ORM", icon: "prisma" },
+          { name: "SQL (joins, indexes, transactions)", icon: "sql" },
+        ],
+      },
+      {
+        name: "AI integrations",
+        items: [
+          { name: "OpenAI API", icon: "openai" },
+          { name: "Claude Code", icon: "claude" },
+          { name: "AI agents / LLMs", icon: "agents" },
+        ],
+      },
+      {
+        name: "Infrastructure & IT",
+        items: [
+          { name: "Docker / Containers", icon: "docker" },
+          { name: "Linux / VPS administration", icon: "linux" },
+          { name: "Microsoft Entra ID / M365", icon: "entra" },
+        ],
+      },
+      {
+        name: "Tooling",
+        items: [
+          { name: "Git & GitHub", icon: "git" },
+          { name: "Vercel", icon: "vercel" },
+        ],
+      },
+      {
+        name: "Frontend",
+        items: [
+          { name: "React", icon: "react" },
+          { name: "Next.js", icon: "next" },
+          { name: "Tailwind CSS", icon: "tailwind" },
+        ],
+      },
+    ],
+  },
+  education: {
+    question: "What is his background?",
+    degree: {
+      label: "University degree",
+      title: "B.S. Systems Engineering",
+      school: "Universidad Tecnológica de Santiago (UTESA)",
+      detail: "Degree earned · October 2026 · GPA 3.7 / 4.0 · 2022 – 2026 · Santo Domingo, DR",
+    },
+    certsLabel: "Certifications",
+    certs: [
+      {
+        title: "Full Stack Web Development — Intermediate level",
+        issuer: "Talento Digital · INDOTEL · BID · CYMETRIA",
+        detail: "80 hours · January 2026 · Santo Domingo, DR",
+      },
+    ],
+    languagesLabel: "Languages",
+    languages: [
+      { name: "Spanish", level: "Native", detail: "" },
+      {
+        name: "English",
+        level: "Intermediate (B1)",
+        detail: "Reading technical documentation and communicating ideas",
+      },
+    ],
+  },
+  contact: {
+    question: "How can I reach him?",
+    text: "I'm looking for backend roles. If you want to talk about APIs, architecture or a project, write to me.",
+    email: "Send an email",
+    cv: "Download CV",
+  },
+  footer: "© 2026 José Pérez. All rights reserved.",
+  resume: {
+    filePath: "/docs/Jose_Gabriel_Perez_Calcano_Resume_English.pdf",
+    fileName: "Jose_Perez_Backend_Developer_EN.pdf",
+  },
+};
+
+export type Dictionary = typeof EN;
+
+const ES: Dictionary = {
+  meta: { name: "José Pérez", role: "Desarrollador Backend" },
+  nav: {
+    home: "Inicio",
+    about: "Sobre mí",
+    projects: "Proyectos",
+    experience: "Experiencia",
+    skills: "Stack",
+    education: "Educación",
+    contact: "Contacto",
+    menu: "Menú",
+    recents: "Conversaciones",
+    next: "Siguiente",
+    language: "Idioma",
+  },
+  hero: {
+    status: "Disponible para roles backend",
+    greeting: "Hola, soy José.",
+    roles: ["Desarrollador Backend", "Ingeniero de Sistemas"],
+    title: "Construyo APIs y las explico para que cualquiera las entienda.",
+    desc: "Desarrollador backend con Node.js, TypeScript y MySQL. Diseño APIs REST, modelos de datos multi-tenant e integraciones con IA.",
+    composerPlaceholder: "Pregunta sobre mi trabajo…",
+    chips: {
+      projects: "Ver proyectos",
+      cv: "Descargar CV",
       contact: "Contacto",
     },
-    hero: {
-      badge: "Disponible",
-      role: "Ingeniero de Sistemas",
-      title: "& Arquitecto Backend.",
-      desc: "Construyendo backends escalables. Egresado esperado 2026 con promedio 3.7.",
-      gradLabel: "Egreso Esperado",
-      gpaLabel: "GPA (Honores)",
-      btnPrimary: "Ver Mi Arquitectura",
-      btnSecondary: "Descargar CV",
-    },
-    about: {
-      overline: "Sobre Mí",
-      heading: "Sobre Mí",
-      badge: "Estado: Modo Hardcore",
-      paragraphs: [
-        {
-          text: "Soy un estudiante de Ingeniería en Sistemas operando con enfoque absoluto. En transición de Soporte TI a Arquitectura Backend, mi objetivo principal es diseñar plataformas escalables y multi-tenant utilizando Node.js, Express y Prisma.",
-          highlights: [
-            "Ingeniería en Sistemas",
-            "Arquitectura Backend",
-            "plataformas escalables y multi-tenant",
-            "Node.js, Express y Prisma",
-          ],
-        },
-        {
-          text: "Más allá de escribir lógica backend optimizada, mi mayor fortaleza es la comunicación arquitectónica—traducir pipelines técnicos complejos en datos claros y accionables para stakeholders. Abordo la ingeniería de software con la misma disciplina implacable que aplico al entrenamiento de fuerza pesado y el dominio de la batería: forma estricta, repeticiones pesadas e iteración constante.",
-          highlights: ["comunicación arquitectónica", "ingeniería de software"],
-        },
-        {
-          text: "Actualmente estoy construyendo la base para llevar mis habilidades arquitectónicas al ecosistema tecnológico canadiense.",
-          highlights: ["ecosistema tecnológico canadiense"],
-        },
-      ],
-      signature: "José Pérez · Ingeniero de Sistemas",
-    },
-    sim: {
-      title: "Simulación de Arquitectura",
-      subtitle: "Vista previa en vivo del motor de análisis TalentMatch AI.",
-      endpoint: "/api/v1/match/analyze",
-      responseLabel: "Respuesta de IA",
-      sendBtn: "Enviar Petición",
-      reset: "Reiniciar",
-    },
-    project: {
-      sectionTitle: "Proyecto Destacado",
-      name: "TalentMatch AI",
-      tagline: "Plataforma SaaS",
-      badge: "En Desarrollo",
-      videoLabel: "Ver Demo Figma",
-      description:
-        "Un motor de reclutamiento impulsado por IA diseñado para cerrar la brecha entre el talento técnico y los reclutadores utilizando algoritmos avanzados.",
-      archHighlights: [
-        "Arquitectura multi-tenant con capas de datos aisladas",
-        "Backend escalable en Node.js y Express con Prisma ORM",
-        "Puntuación de coincidencia en tiempo real con integración de GPT-4o-mini",
-      ],
-      stack: ["Node.js", "Express", "MySQL", "Prisma", "React", "TypeScript"],
-      liveDemo: "Vista Previa",
-      project2Name: "Portafolio 2.0",
-      project2Tagline: "Marca Personal",
-      project2Badge: "Actual",
-      project2Description:
-        "Un portafolio de alto rendimiento construido con Next.js App Router y Tailwind CSS v4, que cuenta con optimización SEO bilingüe y una próxima integración de un chatbot impulsado por IA para fomentar la interacción con reclutadores.",
-      project2Stack: ["Next.js", "Tailwind v4", "Framer Motion", "TypeScript"],
-    },
-    experience: {
-      sectionTitle: "Trayectoria",
-      sectionSubtitle: "Experiencia y Educación",
-      items: [
-        {
-          type: "current",
-          role: "Arquitecto Backend y PM",
-          company: "TalentMatch AI",
-          year: "2026 - Presente",
-          bullets: [
-            "Liderando el diseño de arquitectura para una aplicación SaaS escalable y multi-tenant.",
-            "Implementando APIs REST de alto rendimiento usando Node.js, Express y Prisma.",
-            "Gestionando ciclos de sprint y documentación técnica para un equipo de 3 ingenieros.",
-          ],
-          tags: ["Node.js", "Arquitectura de Sistemas", "Liderazgo"],
-        },
-        {
-          type: "current",
-          role: "Soporte TI y Gestor de Archivos",
-          company: "M&C Inversiones",
-          year: "2024 - Presente",
-          bullets: [
-            "Gestioné y digitalicé portafolios complejos de préstamos físicos, asegurando la integridad de los datos, rápida recuperación y distribución segura.",
-            "Mantuve la alta disponibilidad de sistemas, resolviendo incidencias de hardware/software y proporcionando soporte técnico de nivel 1 bajo presión.",
-            "Aplicando el motor de automatización de reclutamiento TalentMatch AI en un entorno operativo real (en fase de desarrollo activo).",
-          ],
-          tags: ["Integridad de Datos", "Soporte TI", "Integración de IA"],
-        },
-        {
-          type: "education",
-          role: "Ingeniería en Sistemas",
-          company: "Universidad Tecnológica de Santiago",
-          year: "2021 - 2026",
-          description:
-            "Actualmente cursando mi último año. Manteniendo un GPA de 3.7 (Trayectoria de Honores). Plan de estudios enfocado en diseño de bases de datos, arquitectura de software y optimización.",
-          tags: ["GPA 3.7", "Arquitectura de Software", "Algoritmos"],
-        },
-      ],
-    },
-    skills: {
-      sectionTitle: "Arsenal Técnico",
-      sectionSubtitle: "Arquitectura y Stack",
-      categories: [
-        {
-          name: "Backend y Arquitectura",
-          label: "Stack Principal",
-          items: [
-            "Node.js",
-            "Express.js",
-            "APIs RESTful",
-            "Arquitectura de Sistemas",
-          ],
-        },
-        {
-          name: "Bases de Datos y ORM",
-          label: "Capa de Datos",
-          items: ["MySQL", "Prisma ORM", "Optimización SQL"],
-        },
-        {
-          name: "Frontend y UI",
-          label: "Lado del Cliente",
-          items: ["React", "JavaScript (ES6+)", "Tailwind CSS", "HTML/CSS"],
-        },
-        {
-          name: "Infraestructura y Herramientas",
-          label: "DevOps",
-          items: ["Git", "GitHub", "Linux (Ubuntu)", "Postman"],
-        },
-        {
-          name: "IA e Integraciones",
-          label: "Automatización",
-          items: ["OpenAI API", "Prompt Engineering"],
-        },
-      ],
-    },
-    contact: {
-      sectionTitle: "¿Listo para diseñar el futuro?",
-      subtitle:
-        "Actualmente buscando oportunidades en Canadá o roles remotos. Hablemos de arquitectura, sistemas o tu próximo gran proyecto.",
-      cta: "Enviar Correo",
-    },
-    footer: {
-      tagline: "Arquitecto Backend e Ingeniero de Sistemas",
-      rights: "© 2026 José Pérez. Todos los derechos reservados.",
-    },
-    resume: {
-      buttonText: "Descargar CV",
-      filePath: "/docs/Jose_Gabriel_Perez_Calcano_Resume_Spanish.pdf",
-      fileName: "Jose_Perez_Backend_Architect_ES.pdf",
+  },
+  about: {
+    question: "¿Quién es José?",
+    paragraphs: [
+      "Soy Ingeniero en Sistemas y desarrollador backend enfocado en APIs, modelado de datos y diseño de sistemas. Trabajo principalmente con Node.js, Express, Prisma y MySQL.",
+      "Lidero el backend de TalentMatch AI, un SaaS multi-tenant de reclutamiento: diseño la arquitectura, construyo la API REST y mantengo la documentación técnica y los sprints de un equipo pequeño.",
+      "Me importan los contratos claros, los datos predecibles y poder explicar cómo funciona un sistema a quien no lee código.",
+    ],
+    facts: [
+      { label: "Enfoque", value: "APIs REST · SaaS multi-tenant" },
+      {
+        label: "Stack principal",
+        value: "Node.js · TypeScript · Prisma · MySQL",
+      },
+      { label: "Disponibilidad", value: "Disponible para trabajo remoto" },
+      { label: "Ubicación", value: "República Dominicana" },
+    ],
+  },
+  projects: {
+    question: "¿Qué ha construido?",
+    items: [
+      {
+        name: "TalentMatch AI",
+        kind: "SaaS B2B de RR. HH. · Backend · Tech Lead",
+        status: "MVP desplegado",
+        problem:
+          "Los reclutadores pierden horas analizando y comparando candidatos a mano. TalentMatch AI puntúa candidatos frente a un puesto de forma automática.",
+        points: [
+          "Desarrollé el backend completo del SaaS: arquitectura de APIs RESTful, diseño de base de datos MySQL con Prisma e integración con la API de OpenAI para el análisis semántico de perfiles.",
+          "Implementé el motor de scoring que ordena candidatos por afinidad con cada vacante, automatizando la preselección inicial del proceso de reclutamiento.",
+          "Lideré como Tech Lead el equipo de desarrollo: code reviews, resolución de bugs y coordinación del frontend. MVP desplegado con demostración a 5 usuarios iniciales.",
+        ],
+        stack: ["Node.js", "Express", "Prisma", "MySQL", "OpenAI API", "React"],
+        code: "https://github.com/JosePerez0314/talentmatch-backend",
+        codeLabel: "Repo backend",
+        videoLabel: "Ver demo",
+        closeLabel: "Cerrar",
+        liveUrl: "",
+        liveLabel: "",
+        privateLabel: "",
+      },
+      {
+        name: "Video Editor — Shorts",
+        kind: "Agentes de IA · Freelance",
+        status: "Repo público",
+        problem:
+          "Un sistema de producción que convierte un tema en un short vertical listo para publicar (1080×1920): idea → guion → escenas → render → revisión → calendario de redes. Un equipo de 6 agentes de Claude Code, guiado por 33 manuales (skills), hace el trabajo y el creador solo aprueba en los puntos de control.",
+        points: [
+          "Diseñé un flujo de 6 agentes de IA con contratos definidos (estrategia, guion, edición, control de calidad y redes) y 33 skills, con supervisión humana en cada decisión creativa. Implementación asistida por Claude Code.",
+          "Extendí un editor open source sobre Remotion: escenas, subtítulos y efectos de sonido se sincronizan con la transcripción de la voz (Whisper).",
+          "Control de calidad automatizado con 30 comprobaciones medidas (formato, volumen, bucle, zonas seguras) y costo en tokens medido por tarea. 4 videos entregados y 2 publicados en redes.",
+        ],
+        stack: ["Claude Code", "Remotion", "React", "TypeScript", "Node.js", "Python", "FFmpeg", "Whisper"],
+        code: "https://github.com/JosePerez0314/video-editor",
+        codeLabel: "Repositorio",
+        videoLabel: "",
+        closeLabel: "Cerrar",
+        liveUrl: "",
+        liveLabel: "",
+        privateLabel: "",
+      },
+      {
+        name: "OMEX Solution",
+        kind: "Freelance · Full stack + SEO",
+        status: "En línea",
+        problem:
+          "Sitio web corporativo para una empresa dominicana que suministra materiales de oficina y servicios para instalaciones (mantenimiento de aire acondicionado, fumigación, limpieza comercial). Desarrollado como proyecto freelance.",
+        points: [
+          "Diseñé y desarrollé desde cero el sitio de una empresa B2B dominicana de suministros de oficina y mantenimiento: publicado en producción, con SEO técnico y diseño responsive.",
+          "Gestioné el proyecto de forma independiente: alcance, cotización, desarrollo, despliegue y entrega.",
+          "Construido con Next.js, React y Tailwind CSS, desplegado en Vercel, con contacto directo por llamada, correo y WhatsApp.",
+        ],
+        stack: ["Next.js", "React", "Tailwind CSS", "SEO", "Vercel"],
+        code: "",
+        codeLabel: "",
+        videoLabel: "",
+        closeLabel: "Cerrar",
+        liveUrl: "https://omexsolution.com",
+        liveLabel: "Visitar sitio",
+        privateLabel: "Repositorio privado (trabajo para cliente)",
+      },
+      {
+        name: "Portafolio",
+        kind: "Next.js · Este sitio",
+        status: "En línea",
+        problem:
+          "Un portafolio bilingüe y optimizado para SEO con Next.js App Router y Tailwind CSS v4, diseñado alrededor de una interfaz estilo Claude.",
+        points: [
+          "Contenido bilingüe desde un único diccionario tipado.",
+          "Animaciones con Framer Motion que respetan reduced-motion.",
+        ],
+        stack: ["Next.js", "TypeScript", "Tailwind v4", "Framer Motion"],
+        code: "https://github.com/JosePerez0314/portfolio",
+        codeLabel: "Código",
+        videoLabel: "",
+        closeLabel: "Cerrar",
+        liveUrl: "",
+        liveLabel: "",
+        privateLabel: "",
+      },
+    ],
+    fullstack: {
+      title: "También full stack y SEO",
+      text: "Si le sirve a tu equipo: además de backend, también desarrollo productos full stack (React, Next.js) y me encargo del SEO técnico —metadatos, rendimiento y visibilidad en buscadores— como en OMEX Solution.",
+      cta: "Hablemos",
     },
   },
+  experience: {
+    question: "¿Dónde ha trabajado?",
+    items: [
+      {
+        role: "Especialista de TI y Desarrollo Web",
+        company: "BCBLPRO (Pluton Legal)",
+        place: "Santo Domingo, RD · Hasta el cierre de operaciones de la empresa",
+        period: "Julio 2026 – Octubre 2026 (3 meses)",
+        bullets: [
+          "Diseñé, desarrollé y desplegué desde cero el landing page de la empresa (plutonlegal.com) con Next.js, Tailwind CSS y Vercel, con enfoque mobile-first y formulario de captación de leads.",
+          "Brindé soporte técnico y administré de forma autónoma el entorno de TI (más de 25 usuarios): Microsoft Entra ID / M365, unión de equipos a Entra ID, cuentas con mínimo privilegio y buzones compartidos por departamento.",
+          "Realicé el levantamiento técnico de la red y el plan del data center (switches, firewall, UPS, VLAN, videovigilancia IP de 20 cámaras) y audité el sistema de telefonía/CRM de un proveedor externo, identificando cuentas no reconocidas e inconsistencias de visibilidad.",
+        ],
+      },
+      {
+        role: "Soporte Técnico",
+        company: "M&C Inversiones",
+        place: "Santo Domingo, RD",
+        period: "Enero 2025 – Julio 2026 (1 año y 6 meses)",
+        bullets: [
+          "Brindé asistencia técnica a más de 10 usuarios, resolviendo incidencias en sistemas, equipos y plataformas tecnológicas con enfoque rápido y eficiente.",
+          "Colaboré en la modernización y configuración de impresoras corporativas, reduciendo en más de un 80 % las incidencias recurrentes y mejorando la continuidad operativa del área administrativa.",
+        ],
+      },
+    ],
+  },
+  skills: {
+    question: "¿Con qué trabaja?",
+    groups: [
+      {
+        name: "Backend",
+        items: [
+          { name: "Node.js", icon: "node" },
+          { name: "Express", icon: "express" },
+          { name: "TypeScript", icon: "ts" },
+          { name: "JavaScript", icon: "js" },
+          { name: "APIs RESTful", icon: "rest" },
+        ],
+      },
+      {
+        name: "Datos",
+        items: [
+          { name: "MySQL", icon: "mysql" },
+          { name: "Prisma ORM", icon: "prisma" },
+          { name: "SQL (joins, índices, transacciones)", icon: "sql" },
+        ],
+      },
+      {
+        name: "Integraciones de IA",
+        items: [
+          { name: "OpenAI API", icon: "openai" },
+          { name: "Claude Code", icon: "claude" },
+          { name: "Agentes de IA / LLMs", icon: "agents" },
+        ],
+      },
+      {
+        name: "Infraestructura y TI",
+        items: [
+          { name: "Docker / Contenedores", icon: "docker" },
+          { name: "Linux / Administración de VPS", icon: "linux" },
+          { name: "Microsoft Entra ID / M365", icon: "entra" },
+        ],
+      },
+      {
+        name: "Herramientas",
+        items: [
+          { name: "Git y GitHub", icon: "git" },
+          { name: "Vercel", icon: "vercel" },
+        ],
+      },
+      {
+        name: "Frontend",
+        items: [
+          { name: "React", icon: "react" },
+          { name: "Next.js", icon: "next" },
+          { name: "Tailwind CSS", icon: "tailwind" },
+        ],
+      },
+    ],
+  },
+  education: {
+    question: "¿Cuál es su formación?",
+    degree: {
+      label: "Título universitario",
+      title: "Ingeniería en Sistemas",
+      school: "Universidad Tecnológica de Santiago (UTESA)",
+      detail: "Título obtenido · octubre 2026 · GPA 3.7 / 4.0 · 2022 – 2026 · Santo Domingo, RD",
+    },
+    certsLabel: "Certificaciones",
+    certs: [
+      {
+        title: "Desarrollo Web Full Stack — Nivel intermedio",
+        issuer: "Talento Digital · INDOTEL · BID · CYMETRIA",
+        detail: "80 horas · enero 2026 · Santo Domingo, RD",
+      },
+    ],
+    languagesLabel: "Idiomas",
+    languages: [
+      { name: "Español", level: "Nativo", detail: "" },
+      {
+        name: "Inglés",
+        level: "Intermedio (B1)",
+        detail: "Lectura de documentación técnica y comunicación de ideas",
+      },
+    ],
+  },
+  contact: {
+    question: "¿Cómo contactarlo?",
+    text: "Busco roles backend. Si quieres hablar de APIs, arquitectura o un proyecto, escríbeme.",
+    email: "Enviar correo",
+    cv: "Descargar CV",
+  },
+  footer: "© 2026 José Pérez. Todos los derechos reservados.",
+  resume: {
+    filePath: "/docs/Jose_Gabriel_Perez_Calcano_Resume_Spanish.pdf",
+    fileName: "Jose_Perez_Backend_Developer_ES.pdf",
+  },
+};
+
+export const translations = { EN, ES };
+
+export const SECTION_IDS = [
+  "about",
+  "projects",
+  "experience",
+  "skills",
+  "education",
+  "contact",
+] as const;
+export type SectionId = (typeof SECTION_IDS)[number];
+export const hrefFor = (id: SectionId) => `/${id}`;
+
+export const EMAIL = "josegabrielperezcalcano14@gmail.com";
+export const LINKS = {
+  github: "https://github.com/JosePerez0314",
+  linkedin: "https://www.linkedin.com/in/im-jose/",
+  demoVideoId: "AkuiCN_Z1Jk",
 };

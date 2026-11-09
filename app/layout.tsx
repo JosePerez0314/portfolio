@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
 import { LanguageProvider } from "@/context/LanguageContext";
-import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const serifDisplay = Source_Serif_4({
+  variable: "--font-serif-display",
   subsets: ["latin"],
 });
 
@@ -18,11 +24,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.josegabperez.com"),
   title: {
-    default: "José Gabriel Pérez | Backend Engineer & Tech Lead",
+    default: "José Gabriel Pérez | Backend Developer",
     template: "%s | José Gabriel Pérez",
   },
   description:
-    "Ingeniero de Sistemas y Backend Architect especializado en arquitecturas escalables con Node.js, TypeScript y MySQL. Creador de TalentMatch AI.",
+    "Backend developer building REST APIs, multi-tenant systems and AI integrations with Node.js, TypeScript and MySQL. Creator of TalentMatch AI.",
   keywords: [
     "Backend Engineer",
     "Software Architecture",
@@ -35,15 +41,15 @@ export const metadata: Metadata = {
   creator: "José Gabriel Pérez Calcaño",
   openGraph: {
     type: "website",
-    locale: "es_DO",
+    locale: "en_US",
     url: "https://www.josegabperez.com",
-    title: "José Gabriel Pérez | Backend Engineer & Tech Lead",
+    title: "José Gabriel Pérez | Backend Developer",
     description:
-      "Arquitectura backend de grado de producción y sistemas escalables. Explora mi portfolio y proyectos como TalentMatch AI.",
+      "Production-grade backend development: REST APIs, multi-tenant systems and AI integrations. Explore my work, including TalentMatch AI.",
     siteName: "José Gabriel Pérez Portfolio",
     images: [
       {
-        url: "img/yo.jpg", // Asegúrate de tener esta imagen en public/img/
+        url: "/img/me.jpeg",
         width: 1200,
         height: 630,
         alt: "José Gabriel Pérez - Backend Engineer Portfolio",
@@ -53,8 +59,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "José Gabriel Pérez | Backend Engineer",
-    description: "Sistemas escalables y arquitectura backend.",
-    images: ["img/yo.jpg"],
+    description: "Backend developer: REST APIs and scalable systems.",
+    images: ["/img/me.jpeg"],
   },
   robots: {
     index: true,
@@ -69,12 +75,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} ${serifDisplay.variable} antialiased scroll-smooth`}
     >
-      <body className="bg-[#10172A] text-slate-50 min-h-screen flex flex-col">
+      <body className="min-h-screen">
         <LanguageProvider>
-          <Navbar />
-          {children}
+          <Sidebar />
+          <div className="lg:pl-64">
+            <main className="mx-auto w-full max-w-3xl px-5 pb-20 pt-20 sm:px-8 lg:pt-12">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </LanguageProvider>
       </body>
     </html>
