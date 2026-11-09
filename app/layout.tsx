@@ -20,7 +20,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// app/layout.tsx
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.josegabperez.com"),
   title: {
@@ -30,7 +29,8 @@ export const metadata: Metadata = {
   description:
     "Backend developer building REST APIs, multi-tenant systems and AI integrations with Node.js, TypeScript and MySQL. Creator of TalentMatch AI.",
   keywords: [
-    "Backend Engineer",
+    "Backend Developer",
+    "Systems Engineer",
     "Software Architecture",
     "Node.js",
     "TypeScript",
@@ -50,15 +50,15 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/img/me.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "José Gabriel Pérez - Backend Engineer Portfolio",
+        width: 952,
+        height: 1265,
+        alt: "José Gabriel Pérez - Backend Developer Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "José Gabriel Pérez | Backend Engineer",
+    title: "José Gabriel Pérez | Backend Developer",
     description: "Backend developer: REST APIs and scalable systems.",
     images: ["/img/me.jpeg"],
   },
@@ -75,7 +75,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${serifDisplay.variable} antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} ${serifDisplay.variable} antialiased`}
     >
       <body className="min-h-screen">
         <LanguageProvider>

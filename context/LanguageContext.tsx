@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 type Language = "EN" | "ES";
 
@@ -19,6 +19,11 @@ export const LanguageProvider = ({
   children: React.ReactNode;
 }) => {
   const [lang, setLang] = useState<Language>("EN");
+
+  // Keep <html lang> in sync with the selected language (a11y / SEO).
+  useEffect(() => {
+    document.documentElement.lang = lang.toLowerCase();
+  }, [lang]);
 
   return (
     <LanguageContext.Provider value={{ lang, setLang }}>
