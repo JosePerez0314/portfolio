@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Mail, Menu, MessageSquare, X } from "lucide-react";
+import { Mail, MessageSquare, PanelLeft, X } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useLanguage } from "@/context/LanguageContext";
 import {
@@ -140,7 +140,7 @@ export default function Sidebar() {
           aria-label={t.nav.menu}
           className="flex h-10 w-10 items-center justify-center rounded-lg text-fg transition-colors duration-150 hover:bg-surface active:scale-[0.96]"
         >
-          <Menu size={22} />
+          <PanelLeft size={22} />
         </button>
         <div className="flex items-center gap-2">
           <Spark size={22} />
