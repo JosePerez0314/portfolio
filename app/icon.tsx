@@ -17,13 +17,13 @@ export default function Icon() {
     <div
       style={{
         fontSize: 16,
-        background: "linear-gradient(to bottom right, #D97757, #B85C3E)", // orange-500 to orange-700
+        background: "linear-gradient(to bottom right, #D97757, #B85C3E)",
         width: "100%",
         height: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: "#1A1918", // [#1A1918]
+        color: "#1A1918",
         fontWeight: 700,
         borderRadius: "25%", // Slight rounding for the tiny icon
       }}
