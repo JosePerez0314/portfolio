@@ -62,7 +62,7 @@ function RoleLoop({ roles }: { roles: readonly string[] }) {
 
   const text = reduce ? roles.join(" · ") : roles[i].slice(0, n);
   return (
-    <p className="min-h-[1.3em] text-2xl font-semibold tracking-tight text-accent sm:text-3xl md:text-4xl">
+    <p className="min-h-[1.3em] text-xl font-semibold tracking-tight text-accent sm:text-2xl md:text-[28px]">
       <span className="sr-only">{roles.join(", ")}</span>
       <span aria-hidden>
         {text}
@@ -82,7 +82,7 @@ export default function Hero() {
 
   return (
     <section className="flex flex-col justify-center gap-10 pb-10 md:gap-14 pt-6 lg:min-h-[calc(100dvh-11rem)] lg:pt-10">
-      <div className="grid w-full items-center gap-8 md:grid-cols-[1fr_240px] md:gap-16">
+      <div className="grid w-full items-center gap-8 md:grid-cols-[1fr_220px] md:gap-16">
         <div className="flex flex-col items-start gap-6 md:gap-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
             <span className="h-2 w-2 rounded-full bg-accent [animation:status-pulse_2.4s_ease-in-out_infinite]" />

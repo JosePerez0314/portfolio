@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Backend developer building REST APIs, multi-tenant systems and AI integrations with Node.js, TypeScript and MySQL. Creator of TalentMatch AI.",
   keywords: [
     "Backend Developer",
-    "Systems Engineer",
+    "Systems Engineering Graduate",
     "Software Architecture",
     "Node.js",
     "TypeScript",

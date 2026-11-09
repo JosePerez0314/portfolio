@@ -17,7 +17,7 @@ const EN = {
   hero: {
     status: "Open to backend roles",
     greeting: "Hi, I'm José.",
-    roles: ["Backend Developer", "Systems Engineer"],
+    roles: ["Backend Developer", "Systems Engineering Graduate"],
     title: "I build APIs, and I explain them so anyone can understand.",
     desc: "Backend developer working with Node.js, TypeScript and MySQL. I design REST APIs, multi-tenant data models and AI-powered integrations.",
     composerPlaceholder: "Ask about my work…",
@@ -30,7 +30,7 @@ const EN = {
   about: {
     question: "Who is José?",
     paragraphs: [
-      "I'm a Systems Engineer and backend developer focused on APIs, data modeling and system design. I work mostly with Node.js, Express, Prisma and MySQL.",
+      "I'm a Systems Engineering graduate and backend developer focused on APIs, data modeling and system design. I work mostly with Node.js, Express, Prisma and MySQL.",
       "I lead the backend of TalentMatch AI, a multi-tenant SaaS for recruitment: I design the architecture, build the REST API and keep the technical documentation and sprints moving for a small team.",
       "I care about clear contracts, predictable data and being able to explain how a system works to people who don't read code.",
     ],
