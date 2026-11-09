@@ -1,132 +1,147 @@
 "use client";
 
-import React from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, Download } from "lucide-react";
+import Link from "next/link";
+import { ArrowUp, Download } from "lucide-react";
+import { useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/data/translations";
-import me from "../public/img/yo.jpg"; // Adjust path if necessary
+import me from "../public/img/me.jpeg";
 
-const Hero = () => {
+function Typed({ text }: { text: string }) {
+  const reduce = useReducedMotion();
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    if (reduce) return;
+    const id = setInterval(() => setN((v) => v + 1), 28);
+    return () => clearInterval(id);
+  }, [reduce]);
+  const count = reduce ? text.length : Math.min(n, text.length);
+  const done = count >= text.length;
+  return (
+    <>
+      <span className="sr-only">{text}</span>
+      <span aria-hidden>
+        {text.slice(0, count)}
+        {!done && (
+          <span className="ml-0.5 inline-block h-[0.9em] w-[3px] translate-y-[0.1em] bg-accent [animation:caret_1s_steps(1)_infinite]" />
+        )}
+      </span>
+    </>
+  );
+}
+
+function RoleLoop({ roles }: { roles: readonly string[] }) {
+  const reduce = useReducedMotion();
+  const [i, setI] = useState(0);
+  const [n, setN] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    if (reduce) return;
+    const word = roles[i];
+    let delay = 70;
+    let step = () => setN((v) => v + 1);
+    if (!deleting && n >= word.length) {
+      delay = 1500;
+      step = () => setDeleting(true);
+    } else if (deleting && n > 0) {
+      delay = 35;
+      step = () => setN((v) => v - 1);
+    } else if (deleting) {
+      delay = 300;
+      step = () => {
+        setDeleting(false);
+        setI((v) => (v + 1) % roles.length);
+      };
+    }
+    const id = setTimeout(step, delay);
+    return () => clearTimeout(id);
+  }, [n, deleting, i, roles, reduce]);
+
+  const text = reduce ? roles.join(" · ") : roles[i].slice(0, n);
+  return (
+    <p className="min-h-[1.3em] text-2xl font-semibold tracking-tight text-accent sm:text-3xl md:text-4xl">
+      <span className="sr-only">{roles.join(", ")}</span>
+      <span aria-hidden>
+        {text}
+        {!reduce && (
+          <span className="ml-0.5 inline-block h-[0.95em] w-[3px] translate-y-[0.12em] bg-accent [animation:caret_1s_steps(1)_infinite]" />
+        )}
+      </span>
+    </p>
+  );
+}
+
+export default function Hero() {
   const { lang } = useLanguage();
   const t = translations[lang];
-
-  // We extract the resume object specifically for the download logic
-  const resume = translations[lang].resume;
+  const chip =
+    "rounded-full border border-line bg-surface-2 px-5 py-2.5 text-sm text-muted transition-colors duration-150 hover:border-accent/50 hover:text-fg";
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-12 w-full overflow-hidden">
-      <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10 w-full">
-        {/* LEFT COLUMN */}
-        <div className="flex flex-col items-start gap-6 md:gap-8">
-          <div className="flex items-center gap-2 bg-[#0E283C] border border-[#0A738C] px-3 py-1.5 rounded-full">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-            <span className="text-[#0A738C] text-xs font-bold tracking-wide">
-              {t.hero.badge}
-            </span>
+    <section className="flex flex-col justify-center gap-14 pb-10 pt-6 lg:min-h-[calc(100dvh-11rem)] lg:pt-10">
+      <div className="grid w-full items-center gap-12 md:grid-cols-[1fr_240px] md:gap-16">
+        <div className="flex flex-col items-start gap-8 md:gap-10">
+          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
+            <span className="h-2 w-2 rounded-full bg-accent [animation:status-pulse_2.4s_ease-in-out_infinite]" />
+            {t.hero.status}
+          </span>
+
+          <div className="flex flex-col gap-2">
+            <p className="text-lg text-fg/90">{t.hero.greeting}</p>
+            <RoleLoop key={lang} roles={t.hero.roles} />
           </div>
-
-          <h1 className="font-extrabold text-[26px] sm:text-[32px] md:text-[42px] lg:text-[40px] text-slate-50 leading-[1.1] tracking-tight max-w-xl">
-            <span className="text-[#06B2D1]">{t.hero.role}</span> <br />
-            {t.hero.title}
+          <h1 className="min-h-[3.4em] font-serif text-xl font-medium leading-[1.3] tracking-tight text-fg/90 sm:text-2xl md:text-3xl">
+            <Typed key={lang} text={t.hero.title} />
           </h1>
-
-          <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-md">
+          <p className="max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             {t.hero.desc}
           </p>
-
-          <div className="flex items-center gap-8 py-2">
-            <div className="flex flex-col">
-              <span className="text-[#06b2d1] text-[20px] md:text-[25px] font-bold">
-                2026
-              </span>
-              <span className="text-slate-400 text-xs font-medium mt-1">
-                {t.hero.gradLabel}
-              </span>
-            </div>
-
-            <div className="flex flex-col">
-              <span className="text-[#06b2d1] text-[20px] md:text-[25px] font-bold">
-                3.7
-              </span>
-              <span className="text-slate-400 text-xs font-medium mt-1">
-                {t.hero.gpaLabel}
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-4 mt-2">
-            {/* Primary CTA */}
-            <button className="flex items-center gap-2 bg-[#06B2D1] hover:bg-cyan-400 text-slate-950 px-6 py-3 rounded-xl font-bold text-base transition-all shadow-lg shadow-cyan-500/20">
-              {t.hero.btnPrimary}
-              <ArrowRight size={18} />
-            </button>
-
-            {/* DYNAMIC RESUME DOWNLOAD LINK */}
-            {/* Replaced the <button> with an <a> tag using the Context data */}
-            <a
-              href={resume.filePath}
-              download={resume.fileName}
-              className="flex items-center gap-2 bg-transparent border border-slate-700 hover:border-[#06B2D1] hover:text-[#06B2D1] text-slate-300 px-6 py-3 rounded-xl font-medium text-base transition-all cursor-pointer"
-            >
-              <Download size={18} />
-              {t.hero.btnSecondary}
-            </a>
-          </div>
         </div>
 
-        {/* RIGHT COLUMN (Image & Badges) */}
-        <div className="relative flex justify-center lg:justify-end mt-12 md:mt-0">
-          <div className="absolute inset-0 bg-cyan-500/10 blur-3xl rounded-full" />
-
-          <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex items-center justify-center">
-            {/* Anillo decorativo: Ajustado para no desbordar */}
-            <div className="absolute w-[115%] h-[115%] md:w-[170%] md:h-[110%] animate-spin-slow pointer-events-none">
-              <div className="w-full h-full rounded-[50%] border-2 border-dashed border-cyan-500/30" />
-            </div>
-
-            <div className="relative w-full h-full rounded-full border border-slate-800 p-2 overflow-hidden shadow-2xl bg-slate-900 z-10">
-              <Image
-                src={me}
-                alt="José Pérez"
-                fill
-                className="object-cover rounded-full"
-                priority
-              />
-            </div>
-
-            {/* Badge: Node.js (Más pequeño en móvil, original en desktop) */}
-            <div className="absolute top-[5%] -right-2 md:top-[10%] md:-right-15 z-20">
-              <div className="flex items-center gap-1.5 bg-slate-950/90 backdrop-blur-md border border-slate-700 px-2 py-1 md:px-3 md:py-1.5 rounded-full shadow-xl">
-                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#68A063]" />
-                <span className="text-slate-200 text-[10px] md:text-xs font-bold">
-                  Node.js
-                </span>
-              </div>
-            </div>
-
-            {/* Badge: Prisma (Más pequeño en móvil, original en desktop) */}
-            <div className="absolute bottom-[15%] -left-6 md:bottom-[20%] md:-left-26 z-20">
-              <div className="flex items-center gap-1.5 bg-slate-950/90 backdrop-blur-md border border-cyan-500/30 px-2 py-1 md:px-3 md:py-1.5 rounded-full shadow-xl">
-                <span className="text-cyan-400 text-[10px] md:text-xs font-bold">
-                  ⚡ Prisma ORM
-                </span>
-              </div>
-            </div>
-
-            {/* Badge: GPA (Más pequeño en móvil, original en desktop) */}
-            <div className="absolute -bottom-4 right-6 md:-bottom-9 md:right-12 z-20">
-              <div className="flex items-center gap-1.5 bg-cyan-500/10 backdrop-blur-md border border-cyan-500/40 px-2 py-1 md:px-3 md:py-1.5 rounded-full shadow-xl">
-                <span className="text-cyan-400 text-[10px] md:text-xs font-bold tracking-wide">
-                  GPA 3.7 🎓
-                </span>
-              </div>
-            </div>
+        <div className="order-first ml-auto w-36 sm:w-44 md:order-last md:ml-0 md:w-full">
+          <div className="relative aspect-square overflow-hidden rounded-full border-2 border-line bg-surface shadow-[0_0_0_6px_var(--color-deep)]">
+            <Image
+              src={me}
+              alt="José Pérez"
+              fill
+              priority
+              sizes="(min-width: 768px) 260px, 176px"
+              className="object-cover object-top"
+            />
           </div>
+        </div>
+      </div>
+
+      {/* Composer-style bar (decorative, not an input) */}
+      <div className="w-full rounded-3xl border border-line bg-surface p-4 shadow-sm sm:p-5">
+        <div className="flex min-h-[4.5rem] items-start justify-between gap-4 px-2 pb-5 pt-2">
+          <span className="text-lg text-muted/80 sm:text-xl">
+            {t.hero.composerPlaceholder}
+          </span>
+          <Link
+            href="/about"
+            aria-label={t.nav.about}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-bg transition-colors duration-150 hover:bg-accent-strong active:scale-[0.98]"
+          >
+            <ArrowUp size={18} />
+          </Link>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/projects" className={chip}>{t.hero.chips.projects}</Link>
+          <a
+            href={t.resume.filePath}
+            download={t.resume.fileName}
+            className={`${chip} inline-flex items-center gap-2`}
+          >
+            <Download size={14} />
+            {t.hero.chips.cv}
+          </a>
+          <Link href="/contact" className={chip}>{t.hero.chips.contact}</Link>
         </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
