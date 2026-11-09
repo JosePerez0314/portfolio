@@ -27,10 +27,11 @@ Motion should feel like the Claude app: calm, purposeful, quick. It supports rea
 | Hover | cards: border to `accent` at 40%, translateY(-2px), 150–200ms |
 | Buttons | color shift + 1px press (`active:scale-[0.98]`) |
 | Status pill | slow pulse on the dot only |
+| Orb breathe | `Orb breathe`: scale 1→1.07, 4s ease-in-out loop, transform only; only on the answer avatar in `Turn`, never the halo/glow |
 | Marquee | optional, for stack pills, slow (≥30s loop), pauses on hover |
 
 ## Don'ts
-- No parallax that shifts text, no infinite spinning rings, no glows that pulse, no bounce springs on content.
+- No parallax that shifts text, no infinite spinning rings, no glows that pulse (the Orb breathes by scale only, its halo stays static), no bounce springs on content.
 - Don't animate layout properties that cause reflow (use transform/opacity).
 - Don't block interaction while animating.
 

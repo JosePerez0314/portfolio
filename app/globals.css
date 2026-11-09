@@ -48,6 +48,15 @@ body {
   50% { opacity: 0.4; }
 }
 
+@keyframes orb-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+}
+
+.orb-breathe {
+  animation: orb-breathe 4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;

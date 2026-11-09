@@ -9,7 +9,7 @@ The portfolio presents **José Gabriel Pérez as a backend developer**. It is no
 
 ## Inspiration: the Claude app
 The interface should feel like the Claude app: calm, dark, conversational, lots of breathing room, warm accent, no neon.
-- Reference: the Claude desktop app (layered charcoals: darkest sidebar/top bar and user bubbles, mid-tone page, lighter panels; serif display text; orange asterisk mark for the assistant turn).
+- Reference: the Claude desktop app (layered charcoals: darkest sidebar/top bar and user bubbles, mid-tone page, lighter panels; serif display text; an orange orb as our own assistant mark, deliberately not Claude's asterisk).
 - Chat-like surfaces: rounded message bubbles, a composer-style input/bar, thin borders, soft panels.
 - Sidebar/nav feel: slim top bar, subtle active states, small uppercase-free labels.
 - Content-first: one column of readable text (max ~65ch), generous vertical rhythm.
@@ -37,7 +37,7 @@ Rules: orange is the only accent. Use it sparingly (one primary CTA per viewport
 
 ## Shape and depth
 - Radius: `rounded-xl` cards, `rounded-2xl` large panels, `rounded-full` pills/avatar.
-- Borders 1px `line`; shadows minimal, no glows or heavy blur gradients.
+- Borders 1px `line`; shadows minimal, no glows or heavy blur gradients. Single exception: the brand `Orb` (`components/Orb.tsx`), a radial-gradient orange sphere with a faint static halo (≤22% accent alpha). The answer avatar (`Orb avatar`) adds a static concentric ring (accent/30) and a small specular gloss; no other place gets them. It is the only logo/mark; never use a star/asterisk/sparkle.
 
 ## Photo
 Profile photo is `public/img/me.jpeg` (portrait, suit, grey-blue background). Hero shows it as a circle on the right. Use `object-cover` with `object-top`. Open Graph/Twitter images must point to it. `yo.jpg` is retired.

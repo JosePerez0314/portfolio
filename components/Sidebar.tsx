@@ -15,7 +15,7 @@ import {
   LINKS,
 } from "@/data/translations";
 import Avatar from "./Avatar";
-import Spark from "./Spark";
+import Orb from "./Orb";
 
 export default function Sidebar() {
   const { lang, setLang } = useLanguage();
@@ -54,7 +54,7 @@ export default function Sidebar() {
         aria-current={pathname === "/" ? "page" : undefined}
         className={`${item(pathname === "/", large)} font-medium`}
       >
-        <Spark size={large ? 22 : 18} />
+        <Orb size={large ? 22 : 18} />
         {t.nav.home}
       </Link>
 
@@ -149,7 +149,7 @@ export default function Sidebar() {
           <PanelLeft size={22} />
         </button>
         <div className="flex items-center gap-2">
-          <Spark size={22} />
+          <Orb size={22} />
           <span className="font-serif text-lg font-medium text-fg">{t.meta.name}</span>
         </div>
         <div className="ml-auto pr-1">{langSwitch(true)}</div>

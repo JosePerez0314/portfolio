@@ -10,7 +10,7 @@ import {
   type SectionId,
 } from "@/data/translations";
 import Reveal from "./Reveal";
-import Spark from "./Spark";
+import Orb from "./Orb";
 
 /** One page = one conversation: a question bubble, then the answer. */
 export default function Turn({
@@ -35,7 +35,7 @@ export default function Turn({
       </Reveal>
       <Reveal delay={0.08} className="mt-5 flex gap-3">
         <div className="pt-1">
-          <Spark />
+          <Orb size={30} breathe avatar />
         </div>
         <div className="min-w-0 flex-1">{children}</div>
       </Reveal>

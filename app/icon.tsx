@@ -1,38 +1,36 @@
 import { ImageResponse } from "next/og";
 
-// Route segment config
 export const runtime = "edge";
 
-// Image metadata
 export const size = {
   width: 32,
   height: 32,
 };
 export const contentType = "image/png";
 
-// Image generation
+// Favicon: the brand orb on the dark background (hex allowed here: no CSS tokens in ImageResponse)
 export default function Icon() {
   return new ImageResponse(
-    // ImageResponse JSX element
     <div
       style={{
-        fontSize: 16,
-        background: "linear-gradient(to bottom right, #D97757, #B85C3E)",
         width: "100%",
         height: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: "#1A1918",
-        fontWeight: 700,
-        borderRadius: "25%", // Slight rounding for the tiny icon
+        background: "#191817",
+        borderRadius: "25%",
       }}
     >
-      JP
+      <div
+        style={{
+          width: 22,
+          height: 22,
+          borderRadius: "50%",
+          background: "radial-gradient(circle at 32% 28%, #F2B49B 0%, #D97757 45%, #8A4A35 100%)",
+        }}
+      />
     </div>,
-    // ImageResponse options
-    {
-      ...size,
-    },
+    { ...size },
   );
 }
